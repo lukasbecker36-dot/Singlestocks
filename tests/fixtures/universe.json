@@ -1,0 +1,65 @@
+[
+  {
+    "symbol": "MOMO", "company": "Momentum Tight Inc",
+    "price": 20.0, "market_cap": 500000000, "avg_volume": 2000000, "rel_volume": 2.0,
+    "sma20": 17.0, "sma50": 18.0, "sma200": 15.0, "rsi": 60.0,
+    "perf_1w": 3.0, "perf_1m": 15.0, "week_52_high": true,
+    "sales_qoq": 12.0, "eps_qoq": 8.0, "debt_equity": 0.3,
+    "earnings_trading_days": 30, "gap_pct": 0.0,
+    "float_shares": 40000000, "short_pct_float": 5.0, "week_volatility": 3.0
+  },
+  {
+    "symbol": "MOLO", "company": "Momentum Loose Corp",
+    "price": 12.0, "market_cap": 400000000, "avg_volume": 1500000, "rel_volume": 1.2,
+    "sma20": 11.0, "sma50": 10.0, "sma200": 9.0, "rsi": 58.0,
+    "perf_1w": 2.0, "perf_1m": 6.0, "week_52_high": false,
+    "sales_qoq": 3.0, "eps_qoq": 2.0, "debt_equity": 0.8,
+    "earnings_trading_days": 20, "gap_pct": 1.0,
+    "float_shares": 60000000, "short_pct_float": 4.0, "week_volatility": 2.0
+  },
+  {
+    "symbol": "EARN", "company": "Pre Earnings Ltd",
+    "price": 30.0, "market_cap": 800000000, "avg_volume": 1200000, "rel_volume": 1.5,
+    "sma20": 28.0, "sma50": 27.0, "sma200": 25.0, "rsi": 62.0,
+    "perf_1w": 1.0, "perf_1m": 8.0, "week_52_high": false,
+    "sales_qoq": 5.0, "eps_qoq": 5.0, "debt_equity": 1.5,
+    "earnings_trading_days": 3, "gap_pct": 0.0,
+    "float_shares": 70000000, "short_pct_float": 5.0, "week_volatility": 2.0
+  },
+  {
+    "symbol": "PEAD", "company": "Post Earnings Drift Co",
+    "price": 50.0, "market_cap": 1200000000, "avg_volume": 2000000, "rel_volume": 2.0,
+    "sma20": 45.0, "sma50": 44.0, "sma200": 40.0, "rsi": 60.0,
+    "perf_1w": 8.0, "perf_1m": 9.0, "week_52_high": false,
+    "sales_qoq": 4.0, "eps_qoq": 3.0, "debt_equity": 1.2,
+    "earnings_trading_days": -3, "gap_pct": 7.0,
+    "float_shares": 200000000, "short_pct_float": 5.0, "week_volatility": 4.0
+  },
+  {
+    "symbol": "SQZ", "company": "Squeeze Tight Inc",
+    "price": 8.0, "market_cap": 250000000, "avg_volume": 800000, "rel_volume": 2.0,
+    "sma20": 7.0, "sma50": 6.5, "sma200": 6.0, "rsi": 65.0,
+    "perf_1w": 15.0, "perf_1m": 4.0, "week_52_high": false,
+    "sales_qoq": 1.0, "eps_qoq": 1.0, "debt_equity": 0.5,
+    "earnings_trading_days": 30, "gap_pct": 2.0,
+    "float_shares": 30000000, "short_pct_float": 25.0, "week_volatility": 6.0
+  },
+  {
+    "symbol": "SQLO", "company": "Squeeze Loose Corp",
+    "price": 6.0, "market_cap": 200000000, "avg_volume": 400000, "rel_volume": 2.0,
+    "sma20": 5.5, "sma50": 5.0, "sma200": 4.5, "rsi": 55.0,
+    "perf_1w": 3.0, "perf_1m": 2.0, "week_52_high": false,
+    "sales_qoq": 1.0, "eps_qoq": 1.0, "debt_equity": 0.6,
+    "earnings_trading_days": 25, "gap_pct": 1.0,
+    "float_shares": 80000000, "short_pct_float": 12.0, "week_volatility": 3.0
+  },
+  {
+    "symbol": "DUD", "company": "No Match Industries",
+    "price": 10.0, "market_cap": 500000000, "avg_volume": 1000000, "rel_volume": 0.5,
+    "sma20": 12.0, "sma50": 12.0, "sma200": 12.0, "rsi": 40.0,
+    "perf_1w": -2.0, "perf_1m": -5.0, "week_52_high": false,
+    "sales_qoq": -1.0, "eps_qoq": -1.0, "debt_equity": 2.0,
+    "earnings_trading_days": 50, "gap_pct": -1.0,
+    "float_shares": 300000000, "short_pct_float": 2.0, "week_volatility": 1.0
+  }
+]
