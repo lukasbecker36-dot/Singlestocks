@@ -28,6 +28,7 @@ src/
   config.py           # all thresholds as *_TIGHT / *_LOOSE constants (no magic numbers)
   data/
     fmp_client.py     # FMP REST client: rate limiting + daily on-disk cache
+    finnhub_client.py # free short-interest source (short shares, days to cover)
     universe.py       # builds the normalised base-universe DataFrame
   strategies/         # one pure function per strategy: run(universe, mode) -> DataFrame
   market_calendar.py  # NYSE trading-day / holiday helpers
@@ -49,6 +50,11 @@ cp .env.example .env      # then fill in FMP_API_KEY, SMTP_*, EMAIL_*
 Get a free [Financial Modeling Prep](https://financialmodelingprep.com/) API key. The free
 tier allows ~250 calls/day; the client caches daily fundamentals/technicals under
 `cache/<date>/` and only fetches quotes fresh, so keep `SCREEN_LIMIT` modest.
+
+FMP gates float / short-float behind a paid plan, so short interest comes from a free
+[Finnhub](https://finnhub.io/) key (`FINNHUB_API_KEY`) instead — its `/stock/short-interest`
+endpoint gives short shares, % outstanding, and days-to-cover for free. Leave the key blank
+to disable; the Squeeze short-float fields then fall back to FMP (or `NaN`).
 
 ## Run
 
@@ -83,8 +89,10 @@ always-on server set to `America/New_York`.
 
 ## Notes
 
-- **Short interest is delayed.** FINRA publishes biweekly, so Squeeze signals may rest on
-  stale short-float data — the email says so explicitly.
+- **Short interest is delayed.** FINRA publishes biweekly (Finnhub mirrors this cadence), so
+  Squeeze signals may rest on stale short-float data — the email says so explicitly. When
+  float is unavailable, short % is approximated from shares outstanding (slightly lower than
+  true % of float).
 - Relative volume and gap % are derived in the data layer (`universe.py`), never in strategy
   code.
 - Fields a given FMP plan does not expose (e.g. float/short interest on the free tier) come

@@ -35,9 +35,16 @@ def run(universe: pd.DataFrame, mode: str = "tight") -> pd.DataFrame:
         & (df["short_pct_float"] > config.SQUEEZE_SHORT_LOOSE)
     )
 
-    signal = df.apply(
-        lambda r: f"Short {r['short_pct_float']:.0f}% of float, "
-        f"{r['float_shares'] / 1e6:.0f}M float, 1W {r['perf_1w']:+.1f}%",
-        axis=1,
-    )
+    signal = df.apply(_signal, axis=1)
     return finalize(df, NAME, tight, loose, signal, mode)
+
+
+def _signal(row: pd.Series) -> str:
+    text = (
+        f"Short {row['short_pct_float']:.0f}% of float, "
+        f"{row['float_shares'] / 1e6:.0f}M float, 1W {row['perf_1w']:+.1f}%"
+    )
+    dtc = row.get("days_to_cover")
+    if dtc is not None and pd.notna(dtc):
+        text += f", {dtc:.1f}d to cover"
+    return text

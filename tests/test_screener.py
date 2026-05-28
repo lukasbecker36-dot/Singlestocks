@@ -1,10 +1,14 @@
 """Orchestrator, emailer, and calendar tests (offline)."""
 from __future__ import annotations
 
+import math
 from datetime import date
+
+import numpy as np
 
 import emailer
 import screener
+from data.universe import compute_short_metrics
 from market_calendar import is_trading_day, trading_days_offset
 
 
@@ -52,6 +56,29 @@ def test_calendar_weekend_and_holiday():
     assert not is_trading_day(date(2025, 12, 25))  # Christmas
     assert not is_trading_day(date(2025, 7, 4))    # Independence Day
     assert is_trading_day(date(2026, 5, 28))       # ordinary Thursday
+
+
+def test_short_metrics_prefers_float():
+    pct, dtc = compute_short_metrics(
+        short_shares=10_000_000, float_shares=50_000_000, avg_volume=2_000_000,
+        short_pct_outstanding=0.05, short_ratio=2.0,
+    )
+    assert pct == 20.0          # 10M / 50M = 20% of float (not the 5% of outstanding)
+    assert dtc == 2.0           # Finnhub shortRatio preferred
+
+
+def test_short_metrics_falls_back_to_outstanding_and_computed_ratio():
+    pct, dtc = compute_short_metrics(
+        short_shares=10_000_000, float_shares=np.nan, avg_volume=2_000_000,
+        short_pct_outstanding=0.05, short_ratio=np.nan,
+    )
+    assert pct == 5.0           # falls back to % of shares outstanding
+    assert dtc == 5.0           # 10M / 2M avg volume
+
+
+def test_short_metrics_all_missing_is_nan():
+    pct, dtc = compute_short_metrics(np.nan, np.nan, np.nan)
+    assert math.isnan(pct) and math.isnan(dtc)
 
 
 def test_trading_days_offset_signs():

@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 
 import config
+from data.finnhub_client import FinnhubClient
 from data.fmp_client import FMPClient
 from market_calendar import trading_days_offset
 
@@ -26,7 +27,7 @@ COLUMNS = [
     "symbol", "company", "price", "market_cap", "avg_volume", "rel_volume",
     "sma20", "sma50", "sma200", "rsi", "perf_1w", "perf_1m", "week_52_high",
     "sales_qoq", "eps_qoq", "debt_equity", "earnings_trading_days", "gap_pct",
-    "float_shares", "short_pct_float", "week_volatility",
+    "float_shares", "short_pct_float", "days_to_cover", "week_volatility",
 ]
 
 
@@ -46,10 +47,46 @@ def _safe_div(a: float, b: float) -> float:
     return a / b
 
 
-def build_universe(mode: str, client: FMPClient | None = None) -> pd.DataFrame:
+def _coalesce(*values: float) -> float:
+    """First non-NaN value, else NaN."""
+    for value in values:
+        v = _num(value)
+        if not np.isnan(v):
+            return v
+    return np.nan
+
+
+def compute_short_metrics(
+    short_shares: float,
+    float_shares: float,
+    avg_volume: float,
+    short_pct_outstanding: float = np.nan,
+    short_ratio: float = np.nan,
+) -> tuple[float, float]:
+    """Derive (short % of float, days to cover) from whatever inputs are available.
+
+    Prefers short-of-float (short shares / float); falls back to Finnhub's
+    ``shortPercentOutstanding`` (a slightly looser % of shares outstanding) when float is
+    unknown. Days to cover prefers Finnhub's ``shortRatio``, else short shares / avg volume.
+    """
+    short_pct = _safe_div(short_shares, float_shares) * 100
+    if np.isnan(short_pct):
+        pct_out = _num(short_pct_outstanding)
+        if not np.isnan(pct_out):
+            short_pct = pct_out * 100
+    days = _coalesce(short_ratio, _safe_div(short_shares, avg_volume))
+    return short_pct, days
+
+
+def build_universe(
+    mode: str,
+    client: FMPClient | None = None,
+    finnhub: FinnhubClient | None = None,
+) -> pd.DataFrame:
     """Build and base-filter the universe for ``mode``."""
     mode = config.validate_mode(mode)
     client = client or FMPClient()
+    finnhub = finnhub or FinnhubClient()
 
     screened = client.screen(mode)
     symbols = [r["symbol"] for r in screened][: config.SCREEN_LIMIT]
@@ -84,6 +121,20 @@ def build_universe(mode: str, client: FMPClient | None = None) -> pd.DataFrame:
         ratios = client.ratios_ttm(sym)
         growth = client.income_growth(sym)
         flt = client.shares_float(sym)
+        si = finnhub.short_interest(sym)
+
+        float_shares = _coalesce(flt.get("floatShares"))
+        short_pct_float, days_to_cover = compute_short_metrics(
+            short_shares=si.get("short_shares", np.nan),
+            float_shares=float_shares,
+            avg_volume=avg_volume,
+            short_pct_outstanding=si.get("short_pct_outstanding", np.nan),
+            short_ratio=si.get("short_ratio", np.nan),
+        )
+        # Fall back to any short-float FMP may have returned.
+        short_pct_float = _coalesce(
+            short_pct_float, flt.get("shortPercentFloat"), flt.get("shortFloat")
+        )
 
         earn = earnings_dates.get(sym)
         if earn:
@@ -118,8 +169,9 @@ def build_universe(mode: str, client: FMPClient | None = None) -> pd.DataFrame:
                 "debt_equity": _num(ratios.get("debtEquityRatioTTM")),
                 "earnings_trading_days": etd,
                 "gap_pct": _safe_div(day_open - prev_close, prev_close) * 100,
-                "float_shares": _num(flt.get("floatShares")),
-                "short_pct_float": _num(flt.get("shortPercentFloat") or flt.get("shortFloat")),
+                "float_shares": float_shares,
+                "short_pct_float": short_pct_float,
+                "days_to_cover": days_to_cover,
                 "week_volatility": np.nan,  # not provided by FMP base plan
             }
         )
