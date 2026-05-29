@@ -6,12 +6,15 @@ import sys
 from datetime import date
 
 import config
-from data.universe import build_universe
+from data.universe import apply_base_filter, scan_and_enrich
 from emailer import format_email, send_email
 from market_calendar import is_trading_day
 from screener import run_screener, unique_hits
 
 log = logging.getLogger("screener")
+
+# The email always reports both modes: tight first, loose below.
+MODES = ("tight", "loose")
 
 
 def _configure_logging() -> None:
@@ -24,19 +27,25 @@ def _configure_logging() -> None:
 def run(today: date | None = None) -> int:
     """Run the screener for ``today`` (defaults to the current date)."""
     today = today or date.today()
-    mode = config.validate_mode(config.SCAN_MODE)
 
     if not is_trading_day(today):
         log.info("%s is not a trading day — skipping.", today.isoformat())
         return 0
 
-    log.info("Running NASDAQ screener for %s [mode=%s]", today.isoformat(), mode)
-    universe = build_universe(mode)
-    log.info("Base universe: %d ticker(s)", len(universe))
+    log.info("Running NASDAQ screener for %s [modes=%s]", today.isoformat(), ", ".join(MODES))
+    frame = scan_and_enrich()  # expensive Yahoo scan happens once
+    log.info("Enriched universe: %d ticker(s)", len(frame))
 
-    results = run_screener(universe, mode)
-    subject, html = format_email(results, today, mode)
-    log.info("%s (%d unique tickers)", subject, unique_hits(results))
+    results_by_mode: dict[str, dict] = {}
+    for mode in MODES:
+        universe = apply_base_filter(frame, mode)
+        results = run_screener(universe, mode)
+        results_by_mode[mode] = results
+        log.info("Base universe [%s]: %d ticker(s), %d hit(s)",
+                 mode, len(universe), unique_hits(results))
+
+    subject, html = format_email(results_by_mode, today)
+    log.info("%s", subject)
 
     if config.EMAIL_TO and config.SMTP_HOST:
         send_email(subject, html)

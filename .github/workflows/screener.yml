@@ -31,6 +31,5 @@ jobs:
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          SCAN_MODE: ${{ vars.SCAN_MODE || 'tight' }}
           LOG_LEVEL: ${{ vars.LOG_LEVEL || 'INFO' }}
         run: python src/main.py

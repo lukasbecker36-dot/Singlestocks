@@ -70,18 +70,35 @@ def _render_section(name: str, df: pd.DataFrame) -> str:
     )
 
 
-def format_email(
-    results: dict[str, pd.DataFrame], run_date: date, mode: str
-) -> tuple[str, str]:
-    """Build the (subject, html_body) pair for a screener run."""
-    n = unique_hits(results)
-    subject = f"📊 NASDAQ Screener — {run_date.isoformat()} — {n} hits"
+def _unique_across(results_by_mode: dict[str, dict[str, pd.DataFrame]]) -> int:
+    """Count distinct tickers across every mode and strategy."""
+    symbols: set[str] = set()
+    for results in results_by_mode.values():
+        for df in results.values():
+            if not df.empty:
+                symbols.update(df["symbol"].tolist())
+    return len(symbols)
 
-    sections = "".join(_render_section(name, df) for name, df in results.items())
+
+def format_email(
+    results_by_mode: dict[str, dict[str, pd.DataFrame]], run_date: date
+) -> tuple[str, str]:
+    """Build the (subject, html_body) pair, one labelled block per mode (tight then loose)."""
+    total = _unique_across(results_by_mode)
+    subject = f"📊 NASDAQ Screener — {run_date.isoformat()} — {total} hits"
+
+    blocks = []
+    for mode, results in results_by_mode.items():
+        sections = "".join(_render_section(name, df) for name, df in results.items())
+        blocks.append(
+            f"<h1 style='border-bottom:2px solid #333'>{escape(mode.upper())} scan "
+            f"<small>({unique_hits(results)} hits)</small></h1>{sections}"
+        )
+
     body = (
         f"<html><body style='font-family:Arial,Helvetica,sans-serif'>"
-        f"<p>Scan mode: <strong>{escape(mode)}</strong> · {run_date.isoformat()}</p>"
-        f"{sections}"
+        f"<p>{run_date.isoformat()}</p>"
+        f"{''.join(blocks)}"
         f"<hr><p style='color:#666;font-size:12px'>{escape(SHORT_INTEREST_NOTE)}</p>"
         f"<p style='color:#666;font-size:12px'>{escape(DISCLAIMER)}</p>"
         f"</body></html>"

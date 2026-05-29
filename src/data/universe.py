@@ -106,10 +106,27 @@ def _base_thresholds(mode: str) -> tuple[float, float, float]:
     return cap, price_min, vol_min
 
 
-def build_universe(mode: str) -> pd.DataFrame:
-    """Build and base-filter the universe for ``mode`` using Yahoo Finance."""
-    mode = config.validate_mode(mode)
-    cap, price_min, vol_min = _base_thresholds(mode)
+def _broadest_thresholds() -> tuple[float, float, float]:
+    """The most permissive gate across both modes, so one scan can feed tight *and* loose.
+
+    A single mode is a base-filtered subset of this frame.
+    """
+    cap = max(config.BASE_MARKET_CAP_MAX_TIGHT, config.BASE_MARKET_CAP_MAX_LOOSE)
+    price_min = min(config.BASE_PRICE_MIN_TIGHT, config.BASE_PRICE_MIN_LOOSE)
+    vol_min = min(
+        config.BASE_AVG_VOLUME_MIN_TIGHT, config.BASE_AVG_VOLUME_MIN_LOOSE,
+        config.SQUEEZE_AVG_VOL_TIGHT, config.SQUEEZE_AVG_VOL_LOOSE,
+    )
+    return cap, price_min, vol_min
+
+
+def scan_and_enrich() -> pd.DataFrame:
+    """Scan Yahoo once and return the enriched, mode-independent universe frame.
+
+    Gates at the broadest thresholds so the caller can derive any mode's universe with
+    ``apply_base_filter``. The expensive network work happens here exactly once.
+    """
+    cap, price_min, vol_min = _broadest_thresholds()
 
     symbols = yahoo.fetch_nasdaq_symbols()
     metrics = yahoo.scan_price_metrics(symbols, config.HISTORY_PERIOD, config.YF_BATCH_SIZE)
@@ -176,7 +193,12 @@ def build_universe(mode: str) -> pd.DataFrame:
         )
 
     df = pd.DataFrame(rows, columns=COLUMNS)
-    return apply_base_filter(df, mode)
+    return df
+
+
+def build_universe(mode: str) -> pd.DataFrame:
+    """Scan and base-filter the universe for a single ``mode`` (convenience wrapper)."""
+    return apply_base_filter(scan_and_enrich(), config.validate_mode(mode))
 
 
 def apply_base_filter(df: pd.DataFrame, mode: str) -> pd.DataFrame:
