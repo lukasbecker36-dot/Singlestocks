@@ -1,0 +1,38 @@
+name: Daily NASDAQ Screener
+
+# Primary scheduler. GitHub cron runs in UTC, so the local ET trigger shifts ~1h
+# across DST. Two schedules approximate 06:00 ET year-round (10:00 UTC during EDT,
+# 11:00 UTC during EST); main.py skips non-trading days regardless.
+on:
+  schedule:
+    - cron: "0 10 * * 1-5"   # ~06:00 America/New_York during EDT
+    - cron: "0 11 * * 1-5"   # ~06:00 America/New_York during EST
+  workflow_dispatch: {}
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run screener
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          SCAN_MODE: ${{ vars.SCAN_MODE || 'tight' }}
+          LOG_LEVEL: ${{ vars.LOG_LEVEL || 'INFO' }}
+        run: python src/main.py

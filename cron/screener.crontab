@@ -1,0 +1,7 @@
+# NASDAQ small-cap screener — self-hosted cron option.
+# Runs every weekday at 06:00 in the SERVER's local time zone; main.py itself
+# skips weekends/holidays via the market calendar. Set the server TZ to America/New_York
+# (or adjust the hour) so this fires at 6:00 AM ET, before pre-market activity.
+#
+# Install with:  crontab cron/screener.crontab
+0 6 * * 1-5 cd /path/to/project && python src/main.py >> logs/screener.log 2>&1
