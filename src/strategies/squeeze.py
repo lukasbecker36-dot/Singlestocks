@@ -35,8 +35,7 @@ def run(universe: pd.DataFrame, mode: str = "tight") -> pd.DataFrame:
         & (df["short_pct_float"] > config.SQUEEZE_SHORT_LOOSE)
     )
 
-    signal = df.apply(_signal, axis=1)
-    return finalize(df, NAME, tight, loose, signal, mode)
+    return finalize(df, NAME, tight, loose, _signal, mode)
 
 
 def _signal(row: pd.Series) -> str:

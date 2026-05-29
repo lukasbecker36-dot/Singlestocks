@@ -34,8 +34,8 @@ def run(universe: pd.DataFrame, mode: str = "tight") -> pd.DataFrame:
         & (df["debt_equity"] < config.MOMENTUM_DEBT_EQUITY_LOOSE)
     )
 
-    signal = df.apply(
-        lambda r: f"1M {r['perf_1m']:+.1f}%, RSI {r['rsi']:.0f}, RVol {r['rel_volume']:.1f}",
-        axis=1,
-    )
-    return finalize(df, NAME, tight, loose, signal, mode)
+    return finalize(df, NAME, tight, loose, _signal, mode)
+
+
+def _signal(r: pd.Series) -> str:
+    return f"1M {r['perf_1m']:+.1f}%, RSI {r['rsi']:.0f}, RVol {r['rel_volume']:.1f}"

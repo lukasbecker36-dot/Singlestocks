@@ -34,8 +34,8 @@ def run(universe: pd.DataFrame, mode: str = "tight") -> pd.DataFrame:
         & upcoming
     )
 
-    signal = df.apply(
-        lambda r: f"Reports in {int(r['earnings_trading_days'])} td, RSI {r['rsi']:.0f}",
-        axis=1,
-    )
-    return finalize(df, NAME, tight, loose, signal, mode)
+    return finalize(df, NAME, tight, loose, _signal, mode)
+
+
+def _signal(r: pd.Series) -> str:
+    return f"Reports in {int(r['earnings_trading_days'])} td, RSI {r['rsi']:.0f}"
