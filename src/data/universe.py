@@ -94,7 +94,7 @@ def build_universe(
         log.warning("Screener returned no symbols")
         return pd.DataFrame(columns=COLUMNS)
 
-    quotes = {q["symbol"]: q for q in client.quotes(symbols)}
+    names = {r["symbol"]: r.get("companyName", "") for r in screened}
 
     today = date.today()
     cal = client.earnings_calendar(today - timedelta(days=20), today + timedelta(days=15))
@@ -107,7 +107,7 @@ def build_universe(
 
     rows: list[dict[str, Any]] = []
     for sym in symbols:
-        q = quotes.get(sym, {})
+        q = client.quote(sym)
         price = _num(q.get("price"))
         prev_close = _num(q.get("previousClose"))
         day_open = _num(q.get("open"))
@@ -148,7 +148,7 @@ def build_universe(
         rows.append(
             {
                 "symbol": sym,
-                "company": q.get("name", ""),
+                "company": q.get("name") or names.get(sym, ""),
                 "price": price,
                 "market_cap": _num(q.get("marketCap")),
                 "avg_volume": avg_volume,
@@ -166,7 +166,9 @@ def build_universe(
                 ),
                 "sales_qoq": _num(growth.get("growthRevenue")) * 100,
                 "eps_qoq": _num(growth.get("growthEPS")) * 100,
-                "debt_equity": _num(ratios.get("debtEquityRatioTTM")),
+                "debt_equity": _coalesce(
+                    ratios.get("debtEquityRatioTTM"), ratios.get("debtToEquityRatioTTM")
+                ),
                 "earnings_trading_days": etd,
                 "gap_pct": _safe_div(day_open - prev_close, prev_close) * 100,
                 "float_shares": float_shares,
