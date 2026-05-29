@@ -31,10 +31,12 @@ LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO").upper()
 # Data source (Financial Modeling Prep)
 # --------------------------------------------------------------------------- #
 FMP_API_KEY: str = os.getenv("FMP_API_KEY", "")
-FMP_BASE_URL: str = os.getenv("FMP_BASE_URL", "https://financialmodelingprep.com/api/v3")
+FMP_BASE_URL: str = os.getenv("FMP_BASE_URL", "https://financialmodelingprep.com/stable")
 FMP_MAX_CALLS_PER_DAY: int = _int("FMP_MAX_CALLS_PER_DAY", 250)
 FMP_MIN_INTERVAL_SECONDS: float = _float("FMP_MIN_INTERVAL_SECONDS", 0.3)
-SCREEN_LIMIT: int = _int("SCREEN_LIMIT", 60)
+# Each screened symbol costs ~6 FMP calls (quote + rsi + sma + price-change + ratios +
+# income growth). Keep limit * 6 under the free-tier daily budget (~250 calls/day).
+SCREEN_LIMIT: int = _int("SCREEN_LIMIT", 30)
 CACHE_DIR: str = os.getenv("CACHE_DIR", "cache")
 
 # Supplementary short-interest source (free tier). Leave the key blank to disable;

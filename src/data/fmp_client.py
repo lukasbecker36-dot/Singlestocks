@@ -62,8 +62,15 @@ class FMPClient:
         return self.cache_dir / f"{key}.json"
 
     def _get(
-        self, path: str, params: dict[str, Any] | None = None, cache_key: str | None = None
+        self,
+        path: str,
+        params: dict[str, Any] | None = None,
+        cache_key: str | None = None,
+        optional: bool = False,
     ) -> Any:
+        """GET an endpoint. ``optional`` calls return ``None`` instead of raising on failure,
+        so a missing/plan-restricted enrichment endpoint degrades to NaN rather than
+        aborting the whole run."""
         if cache_key:
             cached = self._cache_path(cache_key)
             if cached.exists():
@@ -74,10 +81,11 @@ class FMPClient:
         params["apikey"] = self.api_key
         url = f"{self.base_url}/{path.lstrip('/')}"
 
+        # Count one logical call against the daily budget; retries don't re-charge it.
+        self.limiter.acquire()
         data: Any = None
         for attempt in range(3):
             try:
-                self.limiter.acquire()
                 resp = requests.get(url, params=params, timeout=30)
                 resp.raise_for_status()
                 data = resp.json()
@@ -85,6 +93,8 @@ class FMPClient:
             except requests.RequestException as exc:
                 log.warning("FMP %s failed (attempt %d/3): %s", path, attempt + 1, exc)
                 if attempt == 2:
+                    if optional:
+                        return None
                     raise
                 time.sleep(2 ** attempt)
 
@@ -94,10 +104,10 @@ class FMPClient:
         return data
 
     # ------------------------------------------------------------------ #
-    # endpoints
+    # endpoints (FMP "stable" API; symbol is a query param, not a path segment)
     # ------------------------------------------------------------------ #
     def screen(self, mode: str) -> list[dict[str, Any]]:
-        """Stock screener constrained to the NASDAQ small-cap base universe."""
+        """Company screener constrained to the NASDAQ small-cap base universe."""
         if mode == "tight":
             cap, price, vol = (
                 config.BASE_MARKET_CAP_MAX_TIGHT,
@@ -118,63 +128,60 @@ class FMPClient:
             "isActivelyTrading": "true",
             "limit": config.SCREEN_LIMIT,
         }
-        return self._get("stock-screener", params, cache_key=f"screen_{mode}") or []
+        # Essential: if the screener fails there is no universe, so let it raise.
+        return self._get("company-screener", params, cache_key=f"screen_{mode}") or []
 
-    def quotes(self, symbols: list[str]) -> list[dict[str, Any]]:
-        """Batched real-time quotes (price, volumes, SMA50/200, 52w high). Not cached."""
-        out: list[dict[str, Any]] = []
-        for i in range(0, len(symbols), 50):
-            batch = ",".join(symbols[i : i + 50])
-            out.extend(self._get(f"quote/{batch}") or [])
-        return out
+    def quote(self, symbol: str) -> dict[str, Any]:
+        """Real-time quote (price, volumes, SMA50/200, 52w high, open/prev close). Fresh."""
+        data = self._get("quote", {"symbol": symbol}, optional=True)
+        return data[0] if data else {}
 
     def technical(self, symbol: str, indicator: str, period: int) -> dict[str, Any]:
         """Latest daily technical-indicator point (e.g. rsi/sma)."""
         data = self._get(
-            f"technical_indicator/daily/{symbol}",
-            {"type": indicator, "period": period},
+            f"technical-indicators/{indicator}",
+            {"symbol": symbol, "periodLength": period, "timeframe": "1day"},
             cache_key=f"{indicator}{period}_{symbol}",
+            optional=True,
         )
         return data[0] if data else {}
 
     def price_change(self, symbol: str) -> dict[str, Any]:
-        data = self._get(f"stock-price-change/{symbol}", cache_key=f"pricechange_{symbol}")
+        data = self._get(
+            "stock-price-change", {"symbol": symbol},
+            cache_key=f"pricechange_{symbol}", optional=True,
+        )
         return data[0] if data else {}
 
     def ratios_ttm(self, symbol: str) -> dict[str, Any]:
-        data = self._get(f"ratios-ttm/{symbol}", cache_key=f"ratios_{symbol}")
+        data = self._get(
+            "ratios-ttm", {"symbol": symbol}, cache_key=f"ratios_{symbol}", optional=True
+        )
         return data[0] if data else {}
 
     def income_growth(self, symbol: str) -> dict[str, Any]:
         data = self._get(
-            f"income-statement-growth/{symbol}",
-            {"period": "quarter", "limit": 1},
+            "income-statement-growth",
+            {"symbol": symbol, "period": "quarter", "limit": 1},
             cache_key=f"incomegrowth_{symbol}",
+            optional=True,
         )
         return data[0] if data else {}
 
     def earnings_calendar(self, start: date, end: date) -> list[dict[str, Any]]:
         return (
             self._get(
-                "earning_calendar",
+                "earnings-calendar",
                 {"from": start.isoformat(), "to": end.isoformat()},
                 cache_key=f"earncal_{start.isoformat()}_{end.isoformat()}",
+                optional=True,
             )
             or []
         )
 
     def shares_float(self, symbol: str) -> dict[str, Any]:
-        """Float / short interest (v4 endpoint). May require a paid plan."""
-        v4 = self.base_url.replace("/v3", "/v4")
-        url = f"{v4}/shares_float"
-        try:
-            self.limiter.acquire()
-            resp = requests.get(
-                url, params={"symbol": symbol, "apikey": self.api_key}, timeout=30
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data[0] if data else {}
-        except (requests.RequestException, IndexError, KeyError) as exc:
-            log.warning("shares_float unavailable for %s: %s", symbol, exc)
-            return {}
+        """Float data. May require a paid plan; degrades to empty if unavailable."""
+        data = self._get(
+            "shares-float", {"symbol": symbol}, cache_key=f"float_{symbol}", optional=True
+        )
+        return data[0] if data else {}
