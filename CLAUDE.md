@@ -29,16 +29,24 @@ requirements.txt
 
 ## Data Source
 
-Use **Financial Modeling Prep (FMP)** API as the primary data source — it provides:
+Use **Yahoo Finance** (via the `yfinance` library) as the primary data source — it is free,
+needs no API key, and provides everything required:
 
-- Stock screener endpoint with most needed filters (exchange, market cap, price, volume, SMA, RSI, beta)
-- Earnings calendar endpoint (upcoming and recent report dates)
-- Key metrics (debt/equity, revenue growth, EPS growth, analyst consensus)
-- Float and short interest data
+- Daily OHLCV history per ticker → compute SMA/RSI/performance/relative volume/gap/52-week high ourselves
+- Market cap (`fast_info`) and company fundamentals (`Ticker.info`: debt/equity, revenue & earnings growth)
+- Float and short interest (`floatShares`, `sharesShort`, `shortRatio`, `shortPercentOfFloat`)
+- Earnings dates (`Ticker.info` earnings timestamp)
 
-Fallback/supplement: **Finviz** (scraping or API), **Alpha Vantage**, or **Polygon.io** if FMP lacks a specific field (e.g., short float percentage, gap %).
+The NASDAQ universe comes from the public NASDAQ Trader symbol directory
+(`nasdaqlisted.txt`). Because there is no server-side screener, the universe is filtered
+client-side: scan price history, gate on price → volume → market cap, then enrich survivors.
 
-Store the API key in `.env` — never hardcode. Respect rate limits (cache daily fundamentals; only poll intraday metrics like relative volume fresh).
+> **History:** the project originally targeted Financial Modeling Prep (FMP), but FMP's free
+> tier paywalls the screener and most endpoints (HTTP 402), so the data layer was moved to
+> Yahoo Finance. FMP / Finviz / Alpha Vantage / Polygon remain possible paid upgrades.
+
+Yahoo is unofficial — handle rate-limiting/gaps gracefully (missing fields → `NaN`). Bound
+per-ticker lookups with the `MAX_PREFILTER` / `MAX_ENRICH` caps in `config.py`.
 
 ## Strategy Definitions
 
@@ -142,7 +150,8 @@ If zero results for a strategy, say so explicitly rather than omitting the secti
 ## Environment Variables (.env)
 
 ```
-FMP_API_KEY=
+# Data source: Yahoo Finance — no API key required.
+# Optional tuning: NASDAQ_LIST_URL, HISTORY_PERIOD, YF_BATCH_SIZE, MAX_PREFILTER, MAX_ENRICH
 SMTP_HOST=
 SMTP_PORT=
 SMTP_USER=
@@ -156,6 +165,6 @@ LOG_LEVEL=INFO
 ## Important Notes
 
 - **This is not financial advice.** The screener is a research tool. All investment decisions are the user’s responsibility.
-- Relative volume and gap % may require intraday data or previous-close comparison — handle this in the data layer, not in strategy logic.
+- Relative volume and gap % use previous-close comparison (the run is pre-market, so the latest daily bar is the prior session) — handle this in the data layer, not in strategy logic.
 - Short float data is notoriously delayed (FINRA reports biweekly). Document the staleness of any short interest data clearly in the email output.
-- Rate-limit API calls and cache aggressively. FMP free tier is ~250 calls/day; batch where possible.
+- Yahoo is unofficial and can rate-limit/return gaps. Bulk-download history in batches and bound per-ticker lookups via `MAX_PREFILTER` / `MAX_ENRICH`; missing fields degrade to `NaN`.

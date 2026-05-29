@@ -1,1 +1,1 @@
-"""Data-source adapters: FMP REST client and base-universe assembly."""
+"""Data-source adapters: Yahoo Finance client and base-universe assembly."""
