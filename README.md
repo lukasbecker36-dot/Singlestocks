@@ -18,8 +18,8 @@ conventions).
 | **Post-Earnings Drift** | Recent earnings + gap-up drifting higher (PEAD) |
 | **Squeeze** | Low-float, heavily shorted names showing early squeeze signs |
 
-Each strategy runs in **tight** or **loose** mode (`SCAN_MODE`). Every hit is tagged
-`tight`/`loose` so loose-mode runs still highlight the stronger setups.
+Every run reports **both** a **tight** and a **loose** scan in the same email (tight first,
+loose below), so you see the strict setups and the wider net side by side.
 
 ## Project layout
 
@@ -76,8 +76,8 @@ and run fully offline — no network or API key required.
 
 **GitHub Actions (recommended).** [`.github/workflows/screener.yml`](.github/workflows/screener.yml)
 runs on a weekday cron. Add only the email settings as **repository secrets**: `SMTP_HOST`,
-`SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `EMAIL_TO`, `EMAIL_FROM` (and optionally `SCAN_MODE` /
-`LOG_LEVEL` as **repository variables**). No data-source key is needed. Trigger manually via
+`SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `EMAIL_TO`, `EMAIL_FROM` (and optionally `LOG_LEVEL`
+as a **repository variable**). No data-source key is needed. Trigger manually via
 *Run workflow* to test.
 
 > GitHub cron is UTC; the workflow uses two schedules to approximate 06:00 ET across DST.

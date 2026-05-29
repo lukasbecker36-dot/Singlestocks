@@ -43,19 +43,26 @@ def test_results_ranked_by_relative_volume(universe):
     assert rel == sorted(rel, reverse=True)
 
 
-def test_format_email_subject_and_sections(universe):
-    results = screener.run_screener(universe, "tight")
-    subject, html = emailer.format_email(results, date(2026, 5, 28), "tight")
-    assert "4 hits" in subject
+def test_format_email_includes_both_modes(universe):
+    results_by_mode = {
+        "tight": screener.run_screener(universe, "tight"),
+        "loose": screener.run_screener(universe, "loose"),
+    }
+    subject, html = emailer.format_email(results_by_mode, date(2026, 5, 28))
+    # Unique tickers across both modes: MOMO, MOLO, EARN, PEAD, SQZ, SQLO.
+    assert "6 hits" in subject
     assert "2026-05-28" in subject
+    assert "TIGHT scan" in html and "LOOSE scan" in html
+    # Tight block appears before loose block.
+    assert html.index("TIGHT scan") < html.index("LOOSE scan")
     assert "Momentum" in html and "Squeeze" in html
     assert "not financial advice" in html
 
 
 def test_format_email_reports_empty_sections(universe):
     only_dud = universe[universe["symbol"] == "DUD"]
-    results = screener.run_screener(only_dud, "tight")
-    subject, html = emailer.format_email(results, date(2026, 5, 28), "tight")
+    results_by_mode = {"tight": screener.run_screener(only_dud, "tight")}
+    subject, html = emailer.format_email(results_by_mode, date(2026, 5, 28))
     assert "0 hits" in subject
     assert "No matches today." in html
 

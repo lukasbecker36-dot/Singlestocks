@@ -158,8 +158,8 @@ SMTP_USER=
 SMTP_PASS=
 EMAIL_TO=
 EMAIL_FROM=
-SCAN_MODE=tight          # "tight" or "loose"
 LOG_LEVEL=INFO
+# The email always reports BOTH tight and loose scans (tight first, loose below).
 ```
 
 ## Important Notes
