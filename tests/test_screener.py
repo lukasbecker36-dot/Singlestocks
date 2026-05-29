@@ -21,6 +21,15 @@ def test_run_screener_partitions_by_strategy(universe):
     assert set(results["Squeeze"]["symbol"]) == {"SQZ"}
 
 
+def test_signals_tolerate_nan_on_non_matching_rows(universe):
+    # Regression: signals must be built only for matched rows. Previously a NaN
+    # earnings_trading_days on a non-matching row crashed int() in the Earnings signal.
+    u = universe.copy()
+    u.loc[u["symbol"] != "EARN", "earnings_trading_days"] = np.nan
+    results = screener.run_screener(u, "tight")  # must not raise
+    assert set(results["Earnings"]["symbol"]) == {"EARN"}
+
+
 def test_unique_hits_counts_distinct_tickers(universe):
     results = screener.run_screener(universe, "tight")
     assert screener.unique_hits(results) == 4
