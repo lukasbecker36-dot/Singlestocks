@@ -28,21 +28,16 @@ SCAN_MODE: str = os.getenv("SCAN_MODE", "tight").lower()
 LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO").upper()
 
 # --------------------------------------------------------------------------- #
-# Data source (Financial Modeling Prep)
+# Data source (Yahoo Finance via yfinance — free, no API key)
 # --------------------------------------------------------------------------- #
-FMP_API_KEY: str = os.getenv("FMP_API_KEY", "")
-FMP_BASE_URL: str = os.getenv("FMP_BASE_URL", "https://financialmodelingprep.com/stable")
-FMP_MAX_CALLS_PER_DAY: int = _int("FMP_MAX_CALLS_PER_DAY", 250)
-FMP_MIN_INTERVAL_SECONDS: float = _float("FMP_MIN_INTERVAL_SECONDS", 0.3)
-# Each screened symbol costs ~6 FMP calls (quote + rsi + sma + price-change + ratios +
-# income growth). Keep limit * 6 under the free-tier daily budget (~250 calls/day).
-SCREEN_LIMIT: int = _int("SCREEN_LIMIT", 30)
-CACHE_DIR: str = os.getenv("CACHE_DIR", "cache")
-
-# Supplementary short-interest source (free tier). Leave the key blank to disable;
-# short-interest fields then fall back to FMP (or NaN, which optional filters pass).
-FINNHUB_API_KEY: str = os.getenv("FINNHUB_API_KEY", "")
-FINNHUB_BASE_URL: str = os.getenv("FINNHUB_BASE_URL", "https://finnhub.io/api/v1")
+NASDAQ_LIST_URL: str = os.getenv(
+    "NASDAQ_LIST_URL", "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt"
+)
+HISTORY_PERIOD: str = os.getenv("HISTORY_PERIOD", "1y")  # enough for SMA200 / 52-week high
+YF_BATCH_SIZE: int = _int("YF_BATCH_SIZE", 200)  # symbols per bulk history download
+# Caps that bound per-ticker network lookups so a daily run stays fast/reliable:
+MAX_PREFILTER: int = _int("MAX_PREFILTER", 800)  # symbols kept before market-cap lookup
+MAX_ENRICH: int = _int("MAX_ENRICH", 250)  # small-caps kept for fundamentals enrichment
 
 # --------------------------------------------------------------------------- #
 # Email (SMTP)

@@ -64,7 +64,7 @@ def test_short_metrics_prefers_float():
         short_pct_outstanding=0.05, short_ratio=2.0,
     )
     assert pct == 20.0          # 10M / 50M = 20% of float (not the 5% of outstanding)
-    assert dtc == 2.0           # Finnhub shortRatio preferred
+    assert dtc == 2.0           # provider-supplied short ratio preferred
 
 
 def test_short_metrics_falls_back_to_outstanding_and_computed_ratio():
