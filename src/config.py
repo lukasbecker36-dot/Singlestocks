@@ -36,7 +36,7 @@ NASDAQ_LIST_URL: str = os.getenv(
 HISTORY_PERIOD: str = os.getenv("HISTORY_PERIOD", "1y")  # enough for SMA200 / 52-week high
 YF_BATCH_SIZE: int = _int("YF_BATCH_SIZE", 200)  # symbols per bulk history download
 # Caps that bound per-ticker network lookups so a daily run stays fast/reliable:
-MAX_PREFILTER: int = _int("MAX_PREFILTER", 800)  # symbols kept before market-cap lookup
+MAX_PREFILTER: int = _int("MAX_PREFILTER", 1500)  # symbols kept before market-cap lookup
 MAX_ENRICH: int = _int("MAX_ENRICH", 250)  # small-caps kept for fundamentals enrichment
 
 # --------------------------------------------------------------------------- #
@@ -54,7 +54,9 @@ EMAIL_FROM: str = os.getenv("EMAIL_FROM", "")
 # --------------------------------------------------------------------------- #
 EXCHANGE: str = "NASDAQ"
 BASE_MARKET_CAP_MAX_TIGHT: int = 2_000_000_000
-BASE_MARKET_CAP_MAX_LOOSE: int = 300_000_000  # micro-cap
+# Loose is a true *superset* of tight: same cap, but more permissive on price/volume.
+# (Originally a $300M micro-cap tier, which made "loose" narrower than tight in practice.)
+BASE_MARKET_CAP_MAX_LOOSE: int = 2_000_000_000
 BASE_PRICE_MIN_TIGHT: float = 5.0
 BASE_PRICE_MIN_LOOSE: float = 2.0
 BASE_AVG_VOLUME_MIN_TIGHT: int = 1_000_000
@@ -63,8 +65,8 @@ BASE_AVG_VOLUME_MIN_LOOSE: int = 500_000
 # --------------------------------------------------------------------------- #
 # 1. Momentum
 # --------------------------------------------------------------------------- #
-MOMENTUM_REL_VOL_TIGHT: float = 1.5
-MOMENTUM_REL_VOL_LOOSE: float = 1.0
+MOMENTUM_REL_VOL_TIGHT: float = 1.2
+MOMENTUM_REL_VOL_LOOSE: float = 0.8
 MOMENTUM_RSI_MIN: float = 50.0
 MOMENTUM_RSI_MAX: float = 70.0
 MOMENTUM_PERF_1M_TIGHT: float = 10.0
@@ -76,8 +78,8 @@ MOMENTUM_DEBT_EQUITY_LOOSE: float = 1.0
 # --------------------------------------------------------------------------- #
 # 2. Earnings (pre-earnings play)
 # --------------------------------------------------------------------------- #
-EARNINGS_REL_VOL_TIGHT: float = 1.2
-EARNINGS_REL_VOL_LOOSE: float = 1.0
+EARNINGS_REL_VOL_TIGHT: float = 1.0
+EARNINGS_REL_VOL_LOOSE: float = 0.8
 EARNINGS_RSI_MIN: float = 50.0
 EARNINGS_RSI_MAX: float = 70.0
 EARNINGS_PERF_1M_TIGHT: float = 5.0
@@ -90,10 +92,10 @@ EARNINGS_SALES_QOQ_TIGHT: float = 0.0  # optional
 # --------------------------------------------------------------------------- #
 # 3. Post-earnings drift
 # --------------------------------------------------------------------------- #
-PEAD_REL_VOL: float = 1.5
+PEAD_REL_VOL: float = 1.2
 PEAD_RSI_MIN: float = 50.0
 PEAD_PERF_1W: float = 5.0
-PEAD_GAP: float = 5.0
+PEAD_GAP: float = 3.0
 PEAD_DAYS_TIGHT: int = 5  # earnings within previous N trading days
 PEAD_DAYS_LOOSE: int = 10
 
@@ -102,7 +104,7 @@ PEAD_DAYS_LOOSE: int = 10
 # --------------------------------------------------------------------------- #
 SQUEEZE_AVG_VOL_TIGHT: int = 500_000
 SQUEEZE_AVG_VOL_LOOSE: int = 300_000
-SQUEEZE_REL_VOL: float = 1.5
+SQUEEZE_REL_VOL: float = 1.2
 SQUEEZE_PERF_1W_TIGHT: float = 10.0
 SQUEEZE_PERF_1W_LOOSE: float = 0.0
 SQUEEZE_FLOAT_TIGHT: int = 50_000_000
