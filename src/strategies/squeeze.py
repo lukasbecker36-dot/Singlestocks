@@ -4,38 +4,45 @@ from __future__ import annotations
 import pandas as pd
 
 import config
-from strategies.base import finalize, optional
+from strategies.base import Condition, combine, finalize, funnel_log, optional
 
 NAME = "Squeeze"
 
 
+def _conditions(df: pd.DataFrame, mode: str) -> list[Condition]:
+    tight = mode == "tight"
+    avg_vol = config.SQUEEZE_AVG_VOL_TIGHT if tight else config.SQUEEZE_AVG_VOL_LOOSE
+    perf1w = config.SQUEEZE_PERF_1W_TIGHT if tight else config.SQUEEZE_PERF_1W_LOOSE
+    flt = config.SQUEEZE_FLOAT_TIGHT if tight else config.SQUEEZE_FLOAT_LOOSE
+    short = config.SQUEEZE_SHORT_TIGHT if tight else config.SQUEEZE_SHORT_LOOSE
+
+    conds: list[Condition] = [
+        (f"avg_vol>{avg_vol:.0f}", df["avg_volume"] > avg_vol),
+        (f"rel_vol>{config.SQUEEZE_REL_VOL}", df["rel_volume"] > config.SQUEEZE_REL_VOL),
+        ("price>sma20", df["price"] > df["sma20"]),
+    ]
+    if tight:
+        conds.append(("price>sma50(opt)", optional(df["price"] > df["sma50"], df["sma50"])))
+    conds.extend(
+        [
+            (f"perf_1w>{perf1w}", df["perf_1w"] > perf1w),
+            (f"float<{flt / 1e6:.0f}M", df["float_shares"] < flt),
+            (f"short%>{short}", df["short_pct_float"] > short),
+        ]
+    )
+    if tight:
+        conds.append(
+            ("weekVol>=5(opt)", optional(df["week_volatility"] >= config.SQUEEZE_VOLATILITY_TIGHT, df["week_volatility"]))
+        )
+    return conds
+
+
 def run(universe: pd.DataFrame, mode: str = "tight") -> pd.DataFrame:
     df = universe
-    rel_vol = df["rel_volume"] > config.SQUEEZE_REL_VOL
-    above_20 = df["price"] > df["sma20"]
-
-    tight = (
-        (df["avg_volume"] > config.SQUEEZE_AVG_VOL_TIGHT)
-        & rel_vol
-        & above_20
-        & optional(df["price"] > df["sma50"], df["sma50"])
-        & (df["perf_1w"] > config.SQUEEZE_PERF_1W_TIGHT)
-        & (df["float_shares"] < config.SQUEEZE_FLOAT_TIGHT)
-        & (df["short_pct_float"] > config.SQUEEZE_SHORT_TIGHT)
-        & optional(
-            df["week_volatility"] >= config.SQUEEZE_VOLATILITY_TIGHT, df["week_volatility"]
-        )
-    )
-    loose = (
-        (df["avg_volume"] > config.SQUEEZE_AVG_VOL_LOOSE)
-        & rel_vol
-        & above_20
-        & (df["perf_1w"] > config.SQUEEZE_PERF_1W_LOOSE)
-        & (df["float_shares"] < config.SQUEEZE_FLOAT_LOOSE)
-        & (df["short_pct_float"] > config.SQUEEZE_SHORT_LOOSE)
-    )
-
-    return finalize(df, NAME, tight, loose, _signal, mode)
+    tight_mask = combine(_conditions(df, "tight"))
+    loose_mask = combine(_conditions(df, "loose"))
+    funnel_log(NAME, mode, df, _conditions(df, mode))
+    return finalize(df, NAME, tight_mask, loose_mask, _signal, mode)
 
 
 def _signal(row: pd.Series) -> str:
