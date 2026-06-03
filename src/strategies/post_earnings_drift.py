@@ -4,35 +4,39 @@ from __future__ import annotations
 import pandas as pd
 
 import config
-from strategies.base import between, finalize, optional
+from strategies.base import Condition, between, combine, finalize, funnel_log, optional
 
 NAME = "Post-Earnings Drift"
 
 
+def _conditions(df: pd.DataFrame, mode: str) -> list[Condition]:
+    tight = mode == "tight"
+    days = config.PEAD_DAYS_TIGHT if tight else config.PEAD_DAYS_LOOSE
+
+    conds: list[Condition] = [
+        (f"rel_vol>{config.PEAD_REL_VOL}", df["rel_volume"] > config.PEAD_REL_VOL),
+        ("price>sma20", df["price"] > df["sma20"]),
+        ("price>sma50", df["price"] > df["sma50"]),
+    ]
+    if tight:
+        conds.append(("price>sma200(opt)", optional(df["price"] > df["sma200"], df["sma200"])))
+    conds.extend(
+        [
+            (f"rsi>{config.PEAD_RSI_MIN}", df["rsi"] > config.PEAD_RSI_MIN),
+            (f"perf_1w>={config.PEAD_PERF_1W}", df["perf_1w"] >= config.PEAD_PERF_1W),
+            (f"earnings_in_-{days}..-1td", between(df["earnings_trading_days"], -days, -1)),
+            (f"gap>={config.PEAD_GAP}", df["gap_pct"] >= config.PEAD_GAP),
+        ]
+    )
+    return conds
+
+
 def run(universe: pd.DataFrame, mode: str = "tight") -> pd.DataFrame:
     df = universe
-    above_short = (df["price"] > df["sma20"]) & (df["price"] > df["sma50"])
-    rel_vol = df["rel_volume"] > config.PEAD_REL_VOL
-    rsi_ok = df["rsi"] > config.PEAD_RSI_MIN
-    drift = df["perf_1w"] >= config.PEAD_PERF_1W
-    gap = df["gap_pct"] >= config.PEAD_GAP
-
-    # earnings within the previous N trading days -> negative offset
-    recent_tight = between(df["earnings_trading_days"], -config.PEAD_DAYS_TIGHT, -1)
-    recent_loose = between(df["earnings_trading_days"], -config.PEAD_DAYS_LOOSE, -1)
-
-    tight = (
-        rel_vol
-        & above_short
-        & optional(df["price"] > df["sma200"], df["sma200"])
-        & rsi_ok
-        & drift
-        & recent_tight
-        & gap
-    )
-    loose = rel_vol & above_short & rsi_ok & drift & recent_loose & gap
-
-    return finalize(df, NAME, tight, loose, _signal, mode)
+    tight_mask = combine(_conditions(df, "tight"))
+    loose_mask = combine(_conditions(df, "loose"))
+    funnel_log(NAME, mode, df, _conditions(df, mode))
+    return finalize(df, NAME, tight_mask, loose_mask, _signal, mode)
 
 
 def _signal(r: pd.Series) -> str:
