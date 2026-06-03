@@ -53,9 +53,15 @@ per-ticker lookups with the `MAX_PREFILTER` / `MAX_ENRICH` caps in `config.py`.
 All strategies share a **base universe filter**:
 
 - Exchange: NASDAQ only (no OTC/pink sheets)
-- Market Cap: < $2B (tight) or < $300M micro-cap (loose)
+- Market Cap: < $2B (both tiers — loose is a superset of tight, not a separate micro-cap tier)
 - Price: > $5 (tight) or > $2 (loose)
 - Avg Volume (3-month): > 1M (tight) or > 500K (loose)
+
+> **Tuning note:** the tables below are the original design targets. After a diagnostic run
+> showed relative volume was the dominant gate and "loose" (originally a $300M micro-cap
+> tier) was narrower than tight, the relative-volume floors and the post-earnings gap were
+> softened and the loose cap widened to $2B. `config.py` is the source of truth for the
+> live thresholds.
 
 ### 1. Momentum
 
