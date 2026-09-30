@@ -1,0 +1,879 @@
+ticker,name
+500G,Amundi S&P 500 Swap UCITS ETF
+500P,Franklin S&P 500 Paris Aligned Climate UCITS ETF
+5ESG,UBS S&P 500 Scored & Screened UCITS ETF
+ACWI,SS SPDR MSCI All Country World UCITS ETF
+AEMD,Amundi Core MSCI Emerging Markets UCITS ETF
+AGBP,iShares Core Global Aggregate Bond UCITS ETF
+AGES,iShares Ageing Population UCITS ETF
+AIAG,L&G Artificial Intelligence UCITS ETF
+AINF,iShares AI Infrastructure UCITS ETF
+ALAG,Amundi Msci EM Latin America UCITS ETF
+ALLG,Xtrackers FTSE All-World UCITS ETF
+AMAP,Saturna Al-Kawthar Global Focused Equity UCITS ETF
+ANRJ,Amundi Global Hydrogen UCITS ETF
+AQWG,Global X Clean Water UCITS ETF
+ARAW,abrdn Future Raw Materials UCITS ETF
+ARCG,ARK Genomic Revolution UCITS ETF
+ARCI,ARK Artificial Intelligence & Robotics UCITS ETF
+ARCK,ARK Innovation UCITS ETF
+ARMG,GLOBAL X DEFENCE TECH UCITS ETF
+ASCH,abrdn Future Supply Chains UCITS ETF
+AUAD,UBS MSCI Australia UCITS ETF
+AUCP,L&G Gold Mining UCITS ETF
+AUEG,Amundi MSCI Emerging Markets Swap UCITS ETF
+AVCG,Avantis Global Equity UCITS ETF
+AVEG,Avantis Emerging Markets Equity UCITS ETF
+AVSG,Avantis Global Small Cap Value UCITS ETF
+AWSG,UBS MSCI ACWI Socially Responsible UCITS ETF
+B26G,Invesco BulletShares 2026 USD Corporate Bond UCITS ETF
+B27G,Invesco BulletShares 2027 USD Corporate Bond UCITS ETF
+B28G,Invesco BulletShares 2028 USD Corporate Bond UCITS ETF
+B29G,Invesco BulletShares 2029 USD Corporate Bond UCITS ETF
+B30G,Invesco BulletShares 2030 USD Corporate Bond UCITS ETF
+BATG,L&G Battery Value-Chain UCITS ETF
+BBGE,JPMorgan BetaBuilders EUR Govt Bond UCITS ETF
+BCHS,Invesco CoinShares Global Blockchain UCITS ETF
+BCOG,L&G All Commodities UCITS ETF
+BIGT,L&G Pharma Breakthrough UCITS ETF
+BKCG,Global X Blockchain UCITS ETF
+BKCN,Wisdomtree Blockchain UCITS ETF
+BLKC,iShares Blockchain Technology UCITS ETF
+BNKE,Amundi Euro Stoxx Banks UCITS ETF
+BOTG,Global X Robotics & Artificial Intelligence UCITS ETF
+BRIC,iShares BIC 50 UCITS ETF
+BRIK,Rize Global Sustainable Infrastructure UCITS ETF
+BSUS,UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF
+BTEK,iShares Nasdaq US Biotechnology UCITS ETF
+BUGG,Global X Cybersecurity UCITS ETF
+CACX,Amundi CAC 40 UCITS ETF
+CB5,Amundi Stoxx Europe 600 Banks UCITS ETF
+CBSE,UBS BBG MSCI Euro Area Liquid Corp Sustainable UCITS ETF
+CE2D,Amundi Core MSCI Europe UCITS ETF
+CE31,iShares EUR Govt Bond 1-3yr UCITS ETF EUR Acc
+CEA1,iShares MSCI EM Asia UCITS ETF
+CEG2,Amundi Core MSCI Europe UCITS ETF
+CES1,iShares MSCI EMU Small Cap UCITS ETF
+CEU1,iShares Core MSCI EMU UCITS ETF
+CEUG,iShares Core MSCI EMU UCITS ETF
+CEUR,Amundi MSCI Europe ESG Broad Transition ETF
+CG1,Amundi ETF DAX UCITS ETF DR
+CH5,Amundi Stoxx Europe 600 Healthcare UCITS ETF
+CHIP,KraneShares ICBCUBS S&P China 500 UCITS ETF
+CHNX,Invesco ChiNext 50 UCITS ETF
+CHRG,WisdomTree Battery Solutions UCITS ETF
+CIRC,Rize Circular Economy Enablers UCITS ETF
+CLIM,Amundi Global Aggregate Green Bond UCITS ETF
+CLMP,Guinness Sustainable Energy UCITS ETF
+CLMT,Amundi S&P 500 Climate Paris Aligned UCITS ETF
+CLO6,Global X Cloud Computing UCITS ETF
+CMB1,iShares FTSE MIB UCITS ETF EUR Acc
+CMFP,L&G Longer Dated All Commodities UCITS ETF
+CMOP,Invesco Bloomberg Commodity UCITS ETF
+CMU,Amundi MSCI EMU ESG Selection - UCITS ETF DR
+CMX1,iShares MSCI Mexico Capped UCITS ETF
+CNKY,iShares Nikkei 225 UCITS ETF
+CNX1,iShares NASDAQ 100 UCITS ETF
+CO2P,SparkChange Physical Carbon EUA ETC
+COMG,Amundi Bloomberg Equal-weight Commodity ex-Agriculture UCITS ETF
+COMM,iShares Diversified Commodity Swap UCITS ETF
+COMX,Wisdomtree Broad Commodities UCITS ETF
+COPG,Global X Copper Miners UCITS ETF
+COPP,Sprott Pure Play Copper Miners UCITS ETF
+CPJ1,iShares Core MSCI Pacific ex-Japan UCITS ETF
+CRHG,iShares Global Corp Bond UCITS ETF
+CRPS,iShares Global Corp Bond UCITS ETF
+CRPX,Amundi EUR Corporate Bond Climate Paris Aligned UCITS ETF
+CS1,AMUNDI IBEX 35 UCITS ETF
+CS51,iShares Core EURO STOXX 50 UCITS ETF
+CSCA,iShares MSCI Canada UCITS ETF
+CSH2,Amundi Smart Overnight Return
+CSJP,iShares MSCI Japan UCITS ETF
+CSP1,iShares Core S&P 500 UCITS ETF
+CSUK,iShares MSCI UK UCITS ETF
+CT2B,iShares Smart City Infrastructure UCITS ETF
+CTCE,iShares MSCI China Tech UCITS ETF
+CU1,iShares MSCI USA UCITS ETF
+CU71,iShares USD Treasury Bond 3-7yr UCITS ETF
+CUKS,iShares MSCI UK Small Cap UCITS ETF
+CUKX,iShares Core FTSE 100 UCITS ETF GBP Acc
+CUS1,iShares MSCI USA Small Cap CTB Enhanced ESG UCITS ETF
+CXAP,UBS CMCI ex-Agriculture SF UCITS ETF
+CYBP,Rize Cybersecurity & Data Privacy UCITS ETF
+CYSE,WisdomTree Cybersecurity UCITS ETF
+DAGB,VanEck Crypto and Blockchain Innovators UCITS ETF
+DAXX,Amundi DAX II UCITS ETF
+DEM,WisdomTree Emerging Markets High Dividend UCITS ETF
+DEMS,WisdomTree Emerging Markets High Dividend UCITS ETF
+DFE,WisdomTree Europe SmallCap Dividend UCITS ETF
+DFEP,WisdomTree Europe SmallCap Dividend UCITS ETF
+DFND,iShares Global Aerospace & Defence UCITS ETF
+DFNG,VanEck Defense UCITS ETF
+DFNX,Invesco Defence Innovation UCITS ETF
+DGIT,iShares Digitalisation UCITS ETF
+DGRB,WisdomTree US Quality Dividend Growth UCITS ETF
+DGRG,WisdomTree US Quality Dividend Growth UCITS ETF
+DGRP,WisdomTree US Quality Dividend Growth UCITS ETF
+DGSE,WisdomTree Emerging Markets SmallCap Dividend UCITS ETF
+DHS,WisdomTree US High Dividend UCITS ETF
+DHSG,WisdomTree US High Dividend UCITS ETF
+DHSP,WisdomTree US High Dividend UCITS ETF
+DHYG,iShares USD High Yield Corp Bond ESG SRI UCITS ETF
+DJMC,iShares EURO STOXX Mid UCITS ETF
+DJSC,iShares EURO STOXX Small UCITS ETF
+DOCG,L&G Healthcare Technology & Innovation UCITS ETF
+DPAG,L&G Digital Payments UCITS ETF
+DPGC,Global Core Equity UCITS ETF
+DPGT,Global Targeted Value UCITS ETF
+DPYG,iShares Developed Markets Property Yield UCITS ETF
+DRDR,iShares Healthcare Innovation UCITS ETF
+DRGG,L&G China CNY Bond UCITS ETF
+DRVG,Global X Autonomous & Electric Vehicles UCITS ETF
+DTEC,Amundi Global Memory Chips UCITS ETF
+DXJG,WisdomTree Japan Equity UCITS ETF
+DXJP,WisdomTree Japan Equity UCITS ETF
+E127,Amundi Core MSCI Emerging Markets Swap UCITS ETF
+EART,Amundi Euro Government Green Bond UCITS ETF
+EBIG,Global X E-Commerce UCITS ETF
+EBUY,Amundi MSCI Digital Economy UCITS ETF
+ECOG,L&G Ecommerce Logistics UCITS ETF
+ECRP,Amundi EUR Corporate Bond ESG UCITS ETF
+EDG2,iShares MSCI EM ESG Enhanced CTB UCITS ETF
+EDOG,Global X Telemedicine & Digital Health UCITS ETF
+EEDG,iShares MSCI USA ESG Enhanced CTB UCITS ETF
+EEI,WisdomTree Europe High Dividend UCITS ETF
+EEIP,WisdomTree Europe High Dividend UCITS ETF
+EEJG,iShares MSCI Japan ESG Enhanced CTB UCITS ETF
+EEUD,iShares MSCI Europe ESG Enhanced CTB UCITS ETF
+EEWG,iShares MSCI World CTB Enhanced ESG UCITS ETF
+EEXF,iShares EUR Corp Bond ex-Financials UCITS ETF
+EGDM,iShares MSCI EM ESG Enhanced CTB UCITS ETF
+EGMW,iShares MSCI World CTB Enhanced ESG UCITS ETF
+EGOV,UBS J.P. Morgan Global Gov ESG Liquid Bond UCITS ETF
+EGRG,WisdomTree Eurozone Quality Dividend Growth UCITS ETF
+EGRP,WisdomTree Eurozone Quality Dividend Growth UCITS ETF
+EHYB,Invesco Euro Corporate Hybrid Bond UCITS ETF
+ELCR,Amundi MSCI Smart Mobility UCITS ETF
+EMCP,iShares JP Morgan USD EM Corp Bond UCITS ETF
+EMDG,L&G Emerging Markets Government Bond USD 0-5 Year Screened UCITS ETF
+EMDL,SS SPDR Bloomberg Emerging Markets Local Bond UCITS ETF
+EMDV,SS SPDR S&P Emerging Markets Dividend Aristocrats UCITS ETF
+EMGB,VanEck J.P. Morgan EM Local Currency Bond UCITS ETF
+EMGU,iShares Core MSCI EM IMI UCITS ETF
+EMHG,iShares J.P. Morgan USD EM Bond UCITS ETF
+EMIM,iShares Core MSCI EM IMI UCITS ETF
+EMQP,EMQQ Emerging Markets Internet UCITS ETF
+EMSM,SS SPDR MSCI Emerging Markets Small Cap UCITS ETF
+EMUD,iShares MSCI EMU ESG Enhanced CTB UCITS ETF
+EMV,iShares Edge MSCI EM Minimum Volatility UCITS ETF
+EMXN,Amundi MSCI Emerging Ex China UCITS ETF
+ENCG,L&G Multi-Strategy Enhanced Commodities UCITS ETF
+EQDS,iShares MSCI Europe Quality Dividend Advanced UCITS ETF
+EQGB,Invesco EQQQ Nasdaq-100 UCITS ETF
+EQJS,Invesco NASDAQ Next Generation 100 UCITS ETF
+EQQQ,Invesco EQQQ Nasdaq-100 UCITS ETF
+EQSG,Invesco Nasdaq-100 Swap UCITS ETF
+ERN1,iShares EUR Ultrashort Bond UCITS ETF
+ERNS,iShares GBP Ultrashort Bond UCITS ETF
+ERNU,iShares USD Ultrashort Bond UCITS ETF
+ESES,Invesco MSCI Emerging Markets Universal Screened UCITS ETF
+ESGB,VanEck Video Gaming and eSports UCITS ETF
+ESGL,Amundi MSCI Europe ESG Selection UCITS ETF
+ESGP,Gold Miners Screened UCITS ETF ACC
+ESGS,Invesco MSCI USA Universal Screened UCITS ETF
+ESIC,iShares Msci Europe Consumer Discretionary Sector UCITS ETF
+ESIE,iShares MSCI Europe Energy Sector UCITS ETF
+ESIF,iShares MSCI Europe Financials Sector UCITS ETF
+ESIH,iShares MSCI Europe Health Care Sector UCITS ETF
+ESIN,iShares MSCI Europe Industrials Sector UCITS ETF
+ESIS,iShares MSCI Europe Consumer Staples Sector UCITS ETF
+ESIT,iShares MSCI Europe Information Technology Sector UCITS ETF
+ESRG,Amundi MSCI Europe SRI Climate Paris Aligned ETF
+ESUS,Invesco MSCI USA Universal Screened UCITS ETF
+EUDV,SS SPDR S&P Euro Dividend Aristocrats UCITS ETF
+EUE,iShares Core EURO STOXX 50 UCITS ETF EUR Dist
+EUHD,Invesco EURO STOXX High Dividend Low Volatility UCITS ETF
+EUN,iShares STOXX Europe 50 UCITS ETF
+EUSR,UBS MSCI EMU Socially Responsible UCITS ETF
+EUXS,iShares MSCI Europe ex-UK GBP Hedged UCITS ETF Dist
+EVAL,SS SPDR MSCI Europe Value UCITS ETF
+EWQX,Invesco NASDAQ-100 Equal Weight UCITS ETF
+EWSP,iShares S&P 500 Equal Weight UCITS ETF
+EXCS,iShares MSCI EM EX-China UCITS ETF
+FAHY,Invesco US High Yield Fallen Angels UCITS ETF
+FASE,Invesco FTSE All Share Screened & Tilted UCITS ETF
+FCBR,First Trust Nasdaq Cybersecurity UCITS ETF
+FEMP,Fidelity ESG USD EM Bond UCITS ETF
+FEMQ,Fidelity Emerging Markets Quality Income UCITS ETF
+FEMS,Fidelity Emerging Markets Equity Research Enhanced UCITS ETF
+FGQD,Fidelity Global Quality Income UCITS ETF
+FGRD,First Trust Nasdaq Clean Edge Smart Grid Infrastructure UCITS ETF
+FLO5,iShares USD Floating Rate Bond UCITS ETF
+FLOS,iShares USD Floating Rate Bond UCITS ETF
+FLRK,Franklin FTSE Korea UCITS ETF
+FLXD,Franklin European Quality Dividend UCITS ETF
+FLXE,Franklin EM Multi-Factor Equity UCITS ETF
+FLXX,Franklin Global Quality Dividend UCITS ETF
+FOGB,Rize Sustainable Future of Food UCITS ETF
+FRCH,Franklin FTSE China UCITS ETF
+FRIN,Franklin FTSE India UCITS ETF
+FRUC,Franklin USD Investment Grade Corporate Bond UCITS ETF
+FRXE,Franklin Euro Short Maturity UCITS ETF
+FRXT,Franklin FTSE Taiwan UCITS ETF
+FSEU,iShares STOXX Europe Equity Multifactor UCITS ETF
+FSKY,First Trust Cloud Computing UCITS ETF
+FSMG,Fidelity Global Corp Bond Research Enhanced PAB UCITS ETF
+FSWD,iShares STOXX World Equity Multifactor UCITS ETF
+FTAD,SS SPDR FTSE UK All Share UCITS ETF
+FTAL,SS SPDR FTSE UK All Share UCITS ETF
+FTAW,iShares FTSE All World UCITS ETF
+FTWG,Invesco FTSE All-World UCITS ETF
+FUQA,Fidelity US Quality Income UCITS ETF
+FUSI,Fidelity US Quality Income UCITS ETF
+FUSS,Fidelity US Equity Research Enhanced UCITS ETF
+FVUB,Franklin FTSE Brazil UCITS ETF
+FWRG,Invesco FTSE All-World UCITS ETF
+FXC,iShares China Large Cap UCITS ETF
+G500,Invesco S&P 500 UCITS ETF
+GBDV,SS SPDR S&P Global Dividend Aristocrats UCITS ETF
+GBP5,L&G GBP Corporate Bond 0-5 Year Screened UCITS ETF
+GBPC,L&G GBP Corporate Bond Screened UCITS ETF
+GBPG,Goldman Sachs Access UK Gilts 1-10 Years UCITS ETF
+GBSP,WisdomTree Physical Gold - GBP Daily Hedged
+GCAR,iShares Electric Vehicles & Driving Technology UCITS ETF
+GCEX,Invesco Global Clean Energy UCITS ETF
+GCLX,Invesco Global Clean Energy UCITS ETF
+GDGB,VanEck Gold Miners UCITS ETF
+GEDM,iShares MSCI EM IMI Screened UCITS ETF
+GEND,Amundi Global Gender Equality UCITS ETF
+GFGB,VanEck Global Fallen Angel High Yield Bond UCITS ETF
+GGRB,WisdomTree Global Quality Dividend Growth UCITS ETF
+GGRG,WisdomTree Global Quality Dividend Growth UCITS ETF
+GGRP,WisdomTree Global Quality Dividend Growth UCITS ETF
+GHYG,iShares Global High Yield Corp Bond UCITS ETF
+GHYS,iShares Global High Yield Corp Bond GBP Hedged UCITS ETF Dist
+GIGB,VanEck S&P Global Mining UCITS ETF
+GIL5,Amundi UK Government Bond 0-5Y UCITS ETF
+GILG,iShares Global Inflation Linked Govt Bond UCITS ETF
+GILI,Amundi UK Government Inflation-Linked Bond UCITS ETF
+GILS,Amundi Core UK Government Bond UCITS ETF
+GIN,SS SPDR Morningstar Multi-Asset Global Infrastructure UCITS ETF
+GISG,Amundi Global Government Inflation-Linked Bond 1-10Y UCITS ETF
+GJGB,VanEck Junior Gold Miners UCITS ETF
+GLAB,SS SPDR Bloomberg Global Aggregate Bond  UCITS ETF
+GLBL,SS SPDR Bloomberg Global Aggregate Bond  UCITS ETF
+GLDA,Amundi Physical Gold ETC
+GLDW,WisdomTree Core Physical Gold
+GLGG,L&G Clean Water UCITS ETF
+GLT5,Invesco UK Gilt 1-5 Year UCITS ETF
+GLTA,Invesco UK Gilts UCITS ETF
+GLTL,SS SPDR Bloomberg 15+ Year Gilt UCITS ETF
+GLTS,SS SPDR Bloomberg 1-5 Year Gilt UCITS ETF
+GLTY,SS SPDR Bloomberg UK Gilt UCITS ETF
+GNOG,Global X Genomics & Biotechnology UCITS ETF
+GOGB,VanEck Morningstar Global Wide Moat UCITS ETF
+GPSA,iShares MSCI USA Screened UCITS ETF
+GR8,Making Europe Great Again UCITS ETF ACC
+GSPX,iShares Core S&P 500 UCITS ETF
+GXLC,SS SPDR S&P US Communication Services Select Sector UCITS ETF
+GXLK,SS SPDR S&P US TECHNOLOGY SELECT SECTOR UCITS ETF
+H50A,HSBC EURO STOXX 50 UCITS ETF
+H50E,HSBC EURO STOXX 50 UCITS ETF
+HCAN,HSBC MSCI CANADA UCITS ETF
+HDEM,Invesco FTSE Emerging Markets High Dividend Low Volatility UCITS ETF
+HDGB,VanEck Hydrogen Economy UCITS ETF
+HDIQ,iShares MSCI USA Quality Dividend Advanced UCITS ETF
+HDLG,Invesco S&P 500 High Dividend Low Volatility UCITS ETF
+HEAE,SS SPDR MSCI Europe Health Care UCITS ETF
+HEDG,WisdomTree Europe Equity UCITS ETF
+HEDP,WisdomTree Europe Equity UCITS ETF
+HEDS,WisdomTree Europe Equity UCITS ETF
+HERG,Global X Video Games & Esports UCITS ETF
+HGBP,HSBC Sterling Liquidity Fund UCITS ETF
+HIDR,HSBC MSCI INDONESIA UCITS ETF
+HIES,HSBC MSCI Emerging Markets Islamic Screened Capped UCITS ETF
+HIPS,HSBC MSCI Europe Islamic Screened UCITS ETF
+HIWS,HSBC MSCI World Islamic Screened UCITS ETF
+HKOR,HSBC MSCI Korea Capped UCITS ETF
+HMAF,HSBC MSCI AC FAR EAST EX JAPAN UCITS ETF
+HMCA,HSBC MSCI China A UCITS ETF
+HMCH,HSBC MSCI CHINA UCITS ETF
+HMCX,HSBC FTSE 250 UCITS ETF
+HMEF,HSBC MSCI EMERGING MARKETS UCITS ETF
+HMEU,HSBC MSCI EUROPE UCITS ETF
+HMJP,HSBC MSCI JAPAN UCITS ETF
+HMUS,HSBC MSCI USA Quality UCITS ETF
+HMWO,HSBC MSCI WORLD UCITS ETF
+HMWS,HSBC MSCI WORLD UCITS ETF
+HMXJ,HSBC MSCI PACIFIC EX JAPAN UCITS ETF
+HPAE,HSBC MSCI Europe Climate Paris Aligned UCITS ETF
+HPAO,HSBC MSCI World Climate Paris Aligned UCITS ETF
+HPAS,HSBC MSCI USA Climate Paris Aligned UCITS ETF
+HPRO,HSBC FTSE EPRA/NAREIT Developed UCITS ETF
+HPRS,HSBC FTSE EPRA/NAREIT Developed UCITS ETF
+HSEF,HSBC Emerging Market Screened Equity UCITS ETF
+HSEP,HSBC Europe Screened Equity UCITS ETF
+HSJP,HSBC Japan Screened Equity UCITS ETF
+HSPX,HSBC S&P 500 UCITS ETF
+HSTC,HSBC Hang Seng Tech UCITS ETF
+HSUK,HSBC Uk Screened Equity UCITS ETF
+HSUS,HSBC USA Screened Equity UCITS ETF
+HSWO,HSBC Developed World Screened Equity UCITS ETF
+HSXJ,HSBC Asia Pacific Ex Japan Screened Equity UCITS ETF
+HTWG,L&G Hydrogen Economy UCITS ETF
+HTWN,HSBC MSCI Taiwan Capped UCITS ETF
+HUKX,HSBC FTSE 100 UCITS ETF
+HWSS,HSBC MSCI World Small Cap Screened UCITS ETF
+HWWA,HSBC Multi Factor Worldwide Equity UCITS ETF
+HYGB,VanEck Emerging Markets High Yield Bond UCITS ETF
+HYGG,Global X Hydrogen UCITS ETF
+I500,iShares S&P 500 Swap UCITS ETF
+I50D,iShares S&P 500 Swap UCITS ETF
+IAEX,iShares AEX UCITS ETF
+IAIX,Invesco Artificial Intelligence Enablers UCITS ETF
+IAPD,iShares Asia Pacific Dividend UCITS ETF
+IASH,iShares MSCI China A UCITS ETF
+IASP,iShares Asia Property Yield UCITS ETF
+IBCI,iShares EUR Inflation Linked Govt Bond UCITS ETF
+IBGL,iShares EUR Govt Bond 15-30yr UCITS ETF
+IBGM,iShares II plc - iShares EUR Govt Bond 7-10yr UCITS ETF
+IBGS,iShares EUR Govt Bond 1-3yr UCITS ETF
+IBGX,iShares EUR Govt Bond 3-5yr UCITS ETF
+IBTG,iShares USD Treasury Bond 1-3yr UCITS ETF
+IBTL,iShares USD Treasury Bond 20+yr UCITS ETF
+IBTM,iShares USD Treasury Bond 7-10yr UCITS ETF
+IBTS,iShares USD Treasury Bond 1-3yr UCITS ETF
+IBZL,iShares MSCI Brazil UCITS ETF USD Dist
+ICDU,iShares S&P 500 Consumer Discretionary Sector UCITS ETF
+ICSU,iShares S&P 500 Consumer Staples Sector UCITS ETF
+IDJG,iShares Euro Total Market Growth Large UCITS ETF
+IDTG,iShares USD Treasury Bond 20+yr UCITS ETF
+IDVY,iShares Euro Dividend UCITS ETF
+IEAH,iShares Core EUR Corp Bond UCITS ETF
+IEBC,iShares Core EUR Corp Bond UCITS ETF
+IEEM,iShares MSCI EM UCITS ETF USD Dist
+IEFM,iShares Edge MSCI Europe Momentum Factor UCITS ETF
+IEFQ,iShares Edge MSCI Europe Quality Factor UCITS ETF
+IEFS,iShares MSCI Europe Mid-Cap Equal Weight UCITS ETF
+IEFV,iShares Edge MSCI Europe Value Factor UCITS ETF
+IESG,iShares MSCI Europe SRI UCITS ETF
+IESU,iShares S&P 500 Energy Sector UCITS ETF
+IEUX,iShares MSCI Europe ex-UK UCITS ETF
+IFFF,iShares plc - iShares MSCI AC Far East ex-Japan UCITS ETF
+IGBE,Invesco GBP Corporate Bond Screened & Tilted UCITS ETF
+IGBS,iShares Broad Global Govt Bond UCITS ETF
+IGCB,Invesco GBP Corporate Bond UCITS ETF
+IGHY,iShares Global High Yield Corp Bond UCITS ETF
+IGL5,iShares UK Gilts 0-5yr UCITS ETF
+IGLH,iShares Global Govt Bond UCITS ETF
+IGLS,iShares UK Gilts 0-5yr UCITS ETF
+IGLT,iShares Core UK Gilts UCITS ETF
+IGSD,iShares USD Short Duration Corp Bond UCITS ETF
+IGSG,iShares Dow Jones Global Leaders Screened UCITS ETF
+IGTM,iShares USD Treasury Bond 7-10yr UCITS ETF
+IGUS,iShares S&P 500 GBP Hedged UCITS ETF Acc
+IGWD,iShares MSCI World GBP Hedged UCITS ETF Acc
+IH2O,iShares Global Water UCITS ETF
+IHCU,iShares S&P 500 Health Care Sector UCITS ETF
+IIND,iShares MSCI India UCITS ETF
+IISU,iShares S&P 500 Industrials Sector UCITS ETF
+IITU,iShares S&P 500 Information Technology Sector UCITS ETF
+IJPH,iShares MSCI Japan GBP Hedged UCITS ETF Acc
+IJPN,iShares MSCI Japan UCITS ETF USD Dist
+IKOR,iShares MSCI Korea UCITS ETF USD Dist
+IMEU,iShares Core MSCI Europe UCITS ETF
+IMIB,iShares FTSE MIB UCITS ETF EUR Dist
+IMSU,iShares S&P 500 Materials Sector UCITS ETF
+IMV,iShares Edge MSCI Europe Minimum Volatility UCITS ETF
+INAA,iShares MSCI North America UCITS ETF
+INFR,iShares Global Infrastructure UCITS ETF
+INQP,INQQ India Internet UCITS ETF
+INRG,iShares Global Clean Energy Transition UCITS ETF
+INTL,WisdomTree Artificial Intelligence UCITS ETF
+INXG,iShares GBP Index-Linked Gilts UCITS ETF
+IPRP,iShares European Property Yield UCITS ETF
+IPRV,iShares Listed Private Equity UCITS ETF
+IQCY,Amundi MSCI Smart Cities UCITS ETF
+IQSS,Invesco Global Active ESG Equity UCITS ETF
+IS15,iShares GBP Corp Bond 0-5yr UCITS ETF
+ISF,iShares plc - iShares Core FTSE 100 UCITS ETF
+ISFE,iShares MSCI AC Far East ex-Japan Small Cap UCITS ETF
+ISFR,iShares MSCI France UCITS ETF
+ISJP,iShares MSCI Japan Small Cap UCITS ETF
+ISP6,iShares S&P Small Cap 600 UCITS ETF
+ISPE,iShares S&P 500 Equal Weight UCITS ETF
+ISPY,L&G Cyber Security UCITS ETF
+ISUS,iShares MSCI USA Islamic UCITS ETF
+ISWD,iShares MSCI World Islamic UCITS ETF
+ISXF,iShares GBP Corp Bond ex-Financials UCITS ETF
+ITEP,HAN-GINS Tech Megatrend Equal Weight UCITS ETF
+ITKY,iShares MSCI Turkey UCITS ETF
+ITPG,iShares USD TIPS UCITS ETF
+ITPS,iShares USD TIPS UCITS ETF
+ITWN,iShares MSCI Taiwan UCITS ETF
+IUGA,iShares US Aggregate Bond UCITS ETF
+IUKD,iShares UK Dividend UCITS ETF
+IUKP,iShares UK Property UCITS ETF
+IUMF,iShares Edge MSCI USA Momentum Factor UCITS ETF
+IUQF,iShares Edge MSCI USA Quality Factor UCITS ETF
+IUSA,iShares Core S&P 500 UCITS ETF USD Dist
+IUSF,iShares MSCI USA Mid-Cap Equal Weight UCITS ETF
+IUSP,iShares US Property Yield UCITS ETF
+IUSU,iShares S&P 500 Utilities Sector UCITS ETF
+IUVF,iShares Edge MSCI USA Value Factor UCITS ETF
+IWDG,iShares Core MSCI World UCITS ETF
+IWDP,iShares Developed Markets Property Yield UCITS ETF
+IWFM,iShares Edge MSCI World Momentum Factor UCITS ETF
+IWFQ,iShares Edge MSCI World Quality Factor UCITS ETF
+IWFS,iShares MSCI World Mid-Cap Equal Weight UCITS ETF
+IWFV,iShares Edge MSCI World Value Factor UCITS ETF
+IWRD,iShares MSCI World UCITS ETF
+IWVG,iShares Edge MSCI World Value Factor UCITS ETF
+J13E,JPMorgan BetaBuilders EUR Govt Bond 1-3 yr UCITS ETF
+J15R,JPMorgan EUR 1-5 yr IG Corporate Bond Active UCITS ETF
+JEDG,Vaneck Space Innovators UCITS ETF
+JEGP,JPMorgan Global Equity Premium Income Active UCITS ETF
+JEIP,JPMorgan US Equity Premium Income Active UCITS ETF
+JEQP,JPMorgan Nasdaq Equity Premium Income Active UCITS ETF
+JERE,JPMorgan Europe Research Enhanced Index Equity Active UCITS ETF
+JG15,JPMorgan BetaBuilders UK Gilt 1-5 YR UCITS ETF
+JGEP,JPMorgan Global Research Enhanced Index Equity Active UCITS ETF
+JGRE,JPMorgan Global Research Enhanced Index Equity Active UCITS ETF
+JGST,JPMorgan GBP Ultra-Short Income Active UCITS ETF
+JHYP,JPMorgan Global High Yield Corporate Bond Multi-Factor Active UCITS ETF
+JMRE,JPMorgan Global Emerging Markets Research Enhanced Index Equity Active UCITS ETF
+JPAS,JPMorgan USD Ultra-Short Income Active UCITS ETF
+JPBM,JPMorgan USD Emerging Markets Sovereign Bond UCITS ETF
+JPLG,JPMorgan Global Equity Multi-Factor UCITS ETF
+JPTC,JPMorgan Carbon Transition Global Equity CTB UCITS ETF
+JRBU,JPMorgan USD IG Corporate Bond Active UCITS ETF
+JRDE,JPMorgan Europe Research Enhanced Index Equity Active UCITS ETF
+JRDG,JPMorgan Global Research Enhanced Index Equity Active UCITS ETF
+JRDM,JPMorgan Global Emerging Markets Research Enhanced Index Equity Active UCITS ETF
+JRDU,JPMorgan US Research Enhanced Index Equity Active UCITS ETF
+JRJE,JPMorgan Japan Research Enhanced Index Equity Active UCITS ETF
+JRUW,JPMorgan All Country Research Enhanced Index Equity Active UCITS ETF
+JSET,JPMorgan EUR Ultra-Short Income Active UCITS ETF
+JUKC,JPMorgan UK Equity Core Active UCITS ETF
+JUKE,JPMorgan UK Equity Core Active UCITS ETF
+JURE,JPMorgan US Research Enhanced Index Equity Active UCITS ETF
+KLWD,WisdomTree Cloud Computing UCITS ETF
+KRWL,Amundi MSCI Korea UCITS ETF
+KSTP,KraneShares ICBCUBS China Technology & Semiconductor STAR 50 Index UCITS ETF
+KWBP,KraneShares CSI China Internet UCITS ETF
+L100,Amundi Core FTSE 100 Swap UCITS ETF
+LCJP,Amundi Core MSCI Japan UCITS ETF
+LCPE,Ossiam Lux-Ossiam Shiller Barclays Cape Europe Sector Value TR
+LCUK,Amundi UK Equity All Cap
+LDEG,L&G Europe ex-UK Quality Dividends Equal Weight UCITS ETF
+LDGG,L&G Global Quality Dividends UCITS ETF
+LDUK,L&G UK Quality Dividends Equal Weight UCITS ETF
+LGAG,L&G Asia Pacific ex Japan Equity UCITS ETF
+LGEG,L&G Europe ex UK Equity UCITS ETF
+LGGG,L&G Global Equity UCITS ETF
+LGJG,L&G Japan Equity UCITS ETF
+LGUG,L&G US Equity UCITS ETF
+LGUK,L&G UK Equity UCITS ETF
+LITG,Global X Lithium & Battery Tech UCITS ETF
+LQDS,iShares USD Corp Bond UCITS ETF
+LQGH,iShares USD Corp Bond UCITS ETF
+LSPX,Amundi Core S&P 500 Swap UCITS ETF
+LTAM,iShares MSCI EM Latin America UCITS ETF
+LUXG,Amundi Global Luxury UCITS ETF
+LVNG,Rize Environmental Impact 100 UCITS ETF
+MAGG,iShares Growth Portfolio UCITS ETF
+MAMG,iShares Moderate Portfolio UCITS ETF
+MCHS,Invesco MSCI China All Shares Stock Connect UCITS ETF
+MCTS,Invesco MSCI China Technology All Shares Stock Connect UCITS ETF
+MDBG,UBS Sustainable Development Bank Bonds UCITS ETF
+MDBU,UBS Sustainable Development Bank Bonds UCITS ETF
+METG,iShares Essential Metals Producers UCITS ETF
+MEUD,Amundi Core Stoxx Europe 600 UCITS ETF
+MIDD,iShares FTSE 250 UCITS ETF
+MILL,Amundi MSCI Millennials UCITS ETF
+MINE,iShares Copper Miners UCITS ETF
+MINV,iShares Edge MSCI World Minimum Volatility UCITS ETF
+MLPP,Invesco Morningstar US Energy Infrastructure MLP UCITS ETF
+MOGB,VanEck Morningstar US ESG Wide Moat UCITS ETF
+MSCW,Amundi Core MSCI World Swap UCITS ETF
+MSED,Amundi Core EURO STOXX 50 UCITS ETF
+MSEX,Amundi EURO STOXX 50 II UCITS ETF
+MSRG,Amundi MSCI Emerging Markets SRI Climate Paris Aligned ETF
+MTIX,Amundi Euro Government Inflation-Linked Bond UCITS ETF
+MTXX,Amundi Core Euro Government Bond UCITS ETF
+MVEA,iShares Edge MSCI USA Minimum Volatility Advanced UCITS ETF
+MVEW,iShares Edge MSCI World Minimum Volatility Advanced UCITS ETF
+MVUS,iShares Edge S&P 500 Minimum Volatility UCITS ETF
+MWEP,Invesco MSCI World Equal Weight UCITS ETF
+MWOZ,Amundi Prime Global UCITS ETF
+MWRL,Amundi Core MSCI World UCITS ETF
+MXEU,Invesco MSCI Europe UCITS ETF
+MXFP,Invesco MSCI Emerging Markets UCITS ETF
+MXWS,Invesco MSCI World UCITS ETF
+N100,iShares NASDAQ 100 Swap UCITS ETF
+NASL,Amundi Core Nasdaq-100 Swap UCITS ETF
+NATP,Future of Defence UCITS ETF
+NCLP,WisdomTree Uranium and Nuclear Energy UCITS ETF
+NESP,Invesco Nasdaq-100 ESG UCITS ETF
+NUCG,VanEck Uranium and Nuclear Technologies UCITS ETF
+OMXS,iShares OMX Stockholm Capped UCITS ETF
+PABG,Amundi S&P Eurozone Climate Paris Aligned UCITS ETF
+PACW,Amundi Prime All Country World UCITS ETF
+PADV,SS SPDR S&P Pan Asia Dividend Aristocrats UCITS ETF
+PAIG,WisdomTree Physical AI Humanoids and Drones UCITS ETF
+PAVG,Global X US Infrastructure Development UCITS ETF
+PAXG,Amundi MSCI Pacific Ex Japan UCITS ETF
+PEAM,Invesco MDAX UCITS ETF
+PHPP,WisdomTree Physical Precious Metals
+PHSP,WisdomTree Physical Silver
+PMLP,Alerian Midstream Energy Dividend UCITS ETF
+PPTX,WisdomTree Physical Platinum
+PQVG,Invesco S&P 500 QVM UCITS ETF
+PRAN,Amundi Prime Emerging Markets Ucits ETF DR
+PRFP,Invesco Preferred Shares UCITS ETF
+PRIC,Amundi Core EUR Corporate Bond UCITS ETF
+PRIE,AMUNDI PRIME EUROPE UCITS ETF DR
+PRIG,Amundi Prime Global Government Bond UCITS ETF
+PRIJ,AMUNDI PRIME JAPAN UCITS ETF DR
+PRIR,Amundi Prime Euro Government Bond UCITS ETF
+PRUK,Amundi Prime UK Mid & Small Cap UCITS ETF DR
+PSRE,Invesco RAFI Europe Fundamental Value UCITS ETF
+PSRF,Invesco RAFI US Fundamental Value UCITS ETF
+PSRM,Invesco RAFI Emerging Markets Fundamental Value UCITS ETF
+PSRW,Invesco RAFI All-World Fundamental Value UCITS ETF
+QGRP,WisdomTree US Quality Growth UCITS ETF
+QNTG,VanEck Quantum Computing UCITS ETF
+QQQA,UBS Nasdaq-100 UCITS ETF
+QUID,PIMCO Sterling Short Maturity UCITS ETF
+QWTM,WisdomTree Quantum Computing UCITS ETF
+QYLP,Global X Nasdaq 100 Covered Call UCITS ETF
+R1GB,iShares Russell 1000 Growth UCITS ETF
+R2SC,SS SPDR RUSSELL 2000 US Small Cap UCITS ETF
+RAYS,Invesco Solar Energy UCITS ETF
+RBTX,iShares Automation & Robotics UCITS ETF
+REGB,VanEck Rare Earth and Strategic Metals UCITS ETF
+RENG,L&G Clean Energy UCITS ETF
+RIEG,L&G MSCI Europe Select UCITS ETF
+RISE,iShares Fallen Angels High Yield Corp Bond UCITS ETF
+RMAP,Royal Mint Responsibly Sourced Physical Gold ETC
+RNRU,Global X Renewable Energy Producers UCITS ETF
+ROBG,L&G ROBO Global Robotics and Automation UCITS ETF
+ROES,Goshawk Global Balanced UCITS ETF
+ROLG,iShares Bloomberg Enhanced Roll Yield Commodity Swap UCITS ETF
+RTWP,L&G Russell 2000 Small CAP Quality UCITS ETF
+S100,Invesco FTSE 100 UCITS ETF
+S5SD,UBS S&P 500 Scored & Screened UCITS ETF
+SAEG,Schroder Global Equity Active UCITS ETF
+SAEU,iShares MSCI Europe Screened UCITS ETF
+SAGG,iShares Core Global Aggregate Bond UCITS ETF
+SAUM,iShares MSCI EMU IMI Screened UCITS ETF
+SAUS,iShares MSCI Australia UCITS ETF
+SBEG,UBS BBG USD EM Sovereign UCITS ETF
+SBEM,UBS BBG USD EM Sovereign UCITS ETF
+SBUY,Invesco Global Buyback Achievers UCITS ETF
+SDEU,iShares Germany Govt Bond UCITS ETF
+SDG3,Xtrackers MSCI Global SDG 3 Good Health UCITS ETF
+SDG6,Xtrackers MSCI Global Clean Water & Sanitation UCITS ETF
+SDIP,Global X Superdividend UCITS ETF
+SDUE,iShares MSCI Europe Screened UCITS ETF
+SE15,iShares EUR Corp Bond 1-5yr UCITS ETF
+SEAG,iShares EUR Aggregate Bond ESG SRI UCITS ETF
+SEAL,Future of US Defence Ucits ETF
+SEDY,iShares EM Dividend UCITS ETF
+SEGA,iShares Core EUR Govt Bond UCITS ETF
+SEGM,iShares MSCI EM IMI Screened UCITS ETF
+SEMA,iShares MSCI EM UCITS ETF USD Acc
+SEMB,iShares J.P. Morgan USD EM Bond UCITS ETF
+SEMG,Amundi MSCI Semiconductors UCITS ETF
+SEMI,iShares MSCI Global Semiconductors UCITS ETF
+SEML,iShares JP Morgan EM Local Government Bond UCITS ETF
+SGBX,WisdomTree Physical Swiss Gold
+SGIB,Schroder Global Investment Grade Corporate Bond Active UCITS ETF
+SGIL,iShares Global Inflation Linked Govt Bond UCITS ETF
+SGJP,iShares MSCI Japan Screened UCITS ETF
+SGLN,iShares Physical Gold ETC
+SGLO,iShares Global Govt Bond UCITS ETF
+SGLP,Invesco Physical Gold ETC
+SGLS,Invesco Physical Gold GBP Hedged ETC
+SGSU,iShares USD Corp Bond 0-3Yr ESG SRI UCITS ETF
+SGWS,iShares MSCI World SRI UCITS ETF
+SHLG,iShares Digital Security UCITS ETF
+SHYG,iShares EUR High Yield Corp Bond UCITS ETF
+SHYU,iShares USD High Yield Corp Bond UCITS ETF
+SILG,Global X Silver Miners UCITS ETF
+SJPA,iShares Core MSCI Japan IMI UCITS ETF
+SLXX,iShares Core GBP Corp Bond UCITS ETF
+SMEA,iShares Core MSCI Europe UCITS ETF EUR Acc
+SMGB,VanEck Semiconductor UCITS ETF
+SMUD,iShares MSCI EMU IMI Screened UCITS ETF
+SP20,iShares S&P 500 Top 20 UCITS ETF
+SP5G,Amundi Core S&P 500 Swap UCITS ETF
+SP5L,Amundi Core S&P 500 Swap UCITS ETF
+SPAG,iShares Agribusiness UCITS ETF
+SPAP,Invesco Physical Palladium ETC
+SPDM,iShares Physical Palladium ETC
+SPEP,Invesco S&P 500 Scored & Screened UCITS ETF
+SPES,Invesco S&P 500 Equal Weight UCITS ETF
+SPEX,Invesco S&P 500 Equal Weight UCITS ETF
+SPGP,iShares Gold Producers UCITS ETF
+SPLT,iShares Physical Platinum ETC
+SPOG,iShares Oil & Gas Exploration & Production UCITS ETF
+SPOL,iShares MSCI Poland UCITS ETF
+SPPP,Invesco Physical Platinum ETC
+SPPY,SS SPDR S&P 500 Leaders UCITS ETF
+SPX4,SS SPDR S&P 400 US Mid Cap UCITS ETF
+SPX5,SS SPDR S&P 500 UCITS ETF
+SPXJ,iShares III plc - iShares MSCI Pacific ex-Japan UCITS ETF
+SPXL,SS SPDR S&P 500 UCITS ETF
+SPXP,Invesco S&P 500 UCITS ETF
+SRHE,Amundi MSCI EMU SRI Climate Paris Aligned ETF
+SRIU,UBS MSCI USA Socially Responsible UCITS ETF
+SRIW,UBS MSCI World Socially Responsible UCITS ETF
+SRSA,iShares MSCI South Africa UCITS ETF
+SRUG,UBS MSCI USA Socially Responsible UCITS ETF
+SSAC,iShares MSCI All Country World UCITS ETF
+SSHY,PIMCO Advantage US Short-Term High Yield Corporate Bond UCITS ETF
+SSLN,iShares Physical Silver ETC
+STHS,PIMCO Advantage US Short-Term High Yield Corporate Bond UCITS ETF
+SUAG,iShares US Aggregate Bond UCITS ETF
+SUAP,iShares MSCI USA SRI UCITS ETF
+SUES,iShares MSCI EM SRI UCITS ETF
+SUJA,iShares IV Public Limited Company - iShares MSCI Japan SRI UCITS ETF USD
+SUKC,SS SPDR Bloomberg 0-5 Year Sterling Corporate Bond UCITS ETF
+SUOG,iShares EUR Corp Bond ESG SRI UCITS ETF
+SUOP,iShares USD Corp Bond ESG SRI UCITS ETF
+SUSS,iShares EUR Corp Bond 0-3yr ESG SRI UCITS ETF
+SUUS,iShares MSCI USA SRI UCITS ETF
+SUWG,iShares MSCI World SRI UCITS ETF
+SWDA,iShares Core MSCI World UCITS ETF
+SWLD,SS SPDR MSCI World UCITS ETF
+SWLH,SS SPDR MSCI World UCITS ETF
+SX5S,Invesco EURO STOXX 50 UCITS ETF
+T10G,UBS BBG TIPS 10+ UCITS ETF
+T3PM,JPMorgan Climate Change Solutions Active UCITS ETF
+TDGB,VanEck Morningstar Developed Markets Dividend Leaders UCITS ETF
+TECW,SS SPDR MSCI World Technology UCITS ETF
+TEGB,VanEck European Equal Weight Screened UCITS ETF
+TFRP,WisdomTree USD Floating Rate Treasury Bond UCITS ETF
+TI5G,iShares II plc - iShares USD Tips 0-5 UCITS ETF
+TIPH,Amundi US TIPS UCITS ETF
+TP05,iShares II plc - iShares USD Tips 0-5 UCITS ETF
+TR7G,Invesco US Treasury 3-7 Year UCITS ETF
+TR7S,Invesco US Treasury 3-7 Year UCITS ETF
+TREG,VanEck Global Real Estate UCITS ETF
+TRGB,Invesco US Treasury Bond UCITS ETF
+TRIP,US Global Investors Travel UCITS ETF
+TRSG,Invesco US Treasury Bond UCITS ETF
+TRXG,Invesco US Treasury 7-10 Year UCITS ETF
+TRXS,Invesco US Treasury 7-10 Year UCITS ETF
+TSGB,VanEck World Equal Weight Screened UCITS ETF
+U37G,Amundi US Treasury Bond 3-7Y UCITS ETF
+UB02,UBS Core MSCI Japan UCITS ETF
+UB06,UBS Core MSCI EMU UCITS ETF
+UB0D,UBS Core MSCI Japan UCITS ETF
+UB12,UBS Core MSCI Europe UCITS ETF
+UB20,UBS MSCI Pacific ex Japan UCITS ETF
+UB23,UBS MSCI Canada UCITS ETF
+UB32,UBS Core MSCI EM UCITS ETF
+UB39,UBS MSCI EMU Socially Responsible UCITS ETF
+UB45,UBS MSCI Pacific Socially Responsible UCITS ETF
+UB82,UBS Core BBG US Treasury 1-10 UCITS ETF
+UBTP,UBS Core BBG TIPS 1-10 UCITS ETF
+UC04,UBS Core MSCI USA UCITS ETF
+UC07,UBS MSCI USA Value UCITS ETF
+UC13,UBS Core S&P 500 UCITS ETF
+UC15,UBS CMCI Composite SF UCITS ETF
+UC44,UBS MSCI World Socially Responsible UCITS ETF/Lux
+UC46,UBS MSCI USA Socially Responsible UCITS ETF/Lux
+UC55,UBS MSCI World UCITS ETF
+UC64,UBS MSCI United Kingdom UCITS ETF
+UC79,UBS MSCI EM Socially Responsible UCITS ETF
+UC81,UBS BBG US Liquid Corp 1-5 UCITS ETF
+UC82,UBS BBG US Liquid Corp 1-5 UCITS ETF
+UC87,UBS MSCI Canada UCITS ETF
+UC90,UBS CMCI Composite SF UCITS ETF
+UC94,UBS MSCI Switzerland 20/35 UCITS ETF
+UC98,UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF
+UC99,UBS Factor MSCI USA Quality Screened UCITS ETF
+UD06,UBS BBG Commodity CMCI SF UCITS ETF
+UD07,UBS BBG Commodity CMCI SF UCITS ETF
+UESD,iShares GBP UltraShort Bond ESG SRI UCITS ETF
+UGRW,WisdomTree UK Quality Dividend Growth UCITS ETF
+UIFS,iShares S&P 500 Financials Sector UCITS ETF USD ACC
+UKDV,SS SPDR S&P UK Dividend Aristocrats UCITS ETF
+UKG5,L&G UK Gilt 0-5 Year UCITS ETF
+UKRE,iShares MSCI Target UK Real Estate UCITS ETF
+UKSR,UBS MSCI United Kingdom IMI Socially Responsible UCITS ETF
+URJP,Sprott Junior Uranium Miners UCITS ETF
+URNG,Global X Uranium UCITS ETF
+URNP,Sprott Uranium Miners UCITS ETF
+USDV,SS SPDR S&P US Dividend Aristocrats UCITS ETF
+USEE,iShares US Equity Enhanced Active UCITS ETF
+UVNG,Rize USA Environmental Impact UCITS ETF
+V3AB,Vanguard ESG Global All Cap UCITS ETF
+V3AM,Vanguard ESG Global All Cap UCITS ETF
+V3EA,Vanguard ESG Developed Europe All Cap UCITS ETF
+V3GP,Vanguard ESG Global Corporate Bond UCITS ESG
+V3GS,Vanguard ESG Global Corporate Bond UCITS ESG
+V3NB,Vanguard ESG North America All Cap UCITS ETF
+V3PB,Vanguard ESG Developed Asia-Pacific All Cap UCITS ETF
+VAGP,Vanguard Global Aggregate Bond UCITS ETF
+VAGS,Vanguard Global Aggregate Bond UCITS ETF
+VALL,Vanguard FTSE Global All-Cap UCITS ETF
+VALW,SS SPDR MSCI World Value UCITS ETF
+VAPX,Vanguard FTSE Developed Asia Pacific ex Japan UCITS ETF
+VCPA,Vanguard USD Corporate Bond UCITS ETF
+VDPG,Vanguard FTSE Developed Asia Pacific ex Japan UCITS ETF
+VECA,Vanguard EUR Corporate Bond UCITS ETF
+VECP,Vanguard EUR Corporate Bond UCITS ETF
+VEMA,Vanguard USD Emerging Markets Government Bond UCITS ETF
+VEMT,Vanguard USD Emerging Markets Government Bond UCITS ETF
+VERG,Vanguard FTSE Developed Europe ex UK UCITS ETF
+VERX,Vanguard FTSE Developed Europe ex UK UCITS ETF
+VETA,Vanguard EUR Eurozone Government Bond UCITS ETF
+VETY,Vanguard EUR Eurozone Government Bond UCITS ETF
+VEUA,Vanguard FTSE Developed Europe UCITS ETF
+VEUR,Vanguard FTSE Developed Europe UCITS ETF
+VEVE,Vanguard FTSE Developed World UCITS ETF
+VFEG,Vanguard FTSE Emerging Markets UCITS ETF
+VFEM,Vanguard FTSE Emerging Markets UCITS ETF
+VGER,Vanguard Germany All Cap UCITS ETF
+VGGS,Vanguard Global Government Bond UCITS ETF
+VGOV,Vanguard U.K. Gilt UCITS ETF
+VGVA,Vanguard U.K. Gilt UCITS ETF
+VHVG,Vanguard FTSE Developed World UCITS ETF
+VHYG,Vanguard FTSE All-World High Dividend Yield UCITS ETF
+VHYL,Vanguard FTSE All-World High Dividend Yield UCITS ETF
+VJPB,Vanguard FTSE Japan UCITS ETF
+VJPN,Vanguard FTSE Japan UCITS ETF
+VMID,Vanguard FTSE 250 UCITS ETF
+VMIG,Vanguard FTSE 250 UCITS ETF
+VNRG,Vanguard FTSE North America UCITS ETF
+VNRT,Vanguard FTSE North America UCITS ETF
+VPNG,Global X Data Center REITs & Digital Infrastructure UCITS ETF
+VSCA,Vanguard USD Corporate 1-3 Year Bond UCITS ETF
+VUAG,Vanguard S&P 500 UCITS ETF
+VUCP,Vanguard USD Corporate Bond UCITS ETF
+VUKE,Vanguard FTSE 100 UCITS ETF
+VUKG,Vanguard FTSE 100 UCITS ETF
+VUSA,Vanguard S&P 500 UCITS ETF
+VUSC,Vanguard USD Corporate 1-3 Year Bond UCITS ETF
+VUTA,Vanguard USD Treasury Bond UCITS ETF
+VUTY,Vanguard USD Treasury Bond UCITS ETF
+VWRL,Vanguard FTSE All-World UCITS ETF
+VWRP,Vanguard FTSE All-World UCITS ETF
+WATL,Amundi MSCI Water UCITS ETF
+WBIO,Wisdomtree Biorevolution UCITS ETF
+WCOB,Wisdomtree Enhanced Commodity UCITS ETF
+WCOG,Wisdomtree Enhanced Commodity UCITS ETF
+WCOM,Wisdomtree Enhanced Commodity UCITS ETF
+WDEP,WisdomTree Europe Defence UCITS ETF
+WELP,HARBOR HEALTH CARE UCITS ETF
+WEXU,Amundi MSCI World Ex USA UCITS ETF
+WGEC,WisdomTree Global Efficient Core UCITS ETF
+WHCA,iShares MSCI World Health Care Sector Advanced UCITS ETF
+WIGG,iShares Fallen Angels High Yield Corp Bond UCITS ETF
+WINC,iShares World Equity High Income Active UCITS ETF
+WIRG,Xtrackers Electrification Technologies & Smart Grid UCITS ETF
+WITS,iShares MSCI World Information Technology Sector Advanced UCITS ETF
+WLDL,Amundi MSCI World Swap II UCITS ETF
+WLDS,Ishares III PLC - Ishares Msci World Small Cap UCITS ETF
+WMGG,WisdomTree Megatrends UCITS ETF
+WMVG,iShares Edge MSCI World Minimum Volatility UCITS ETF
+WOEE,iShares World Equity Enhanced Active UCITS ETF
+WOOD,iShares Global Timber & Forestry UCITS ETF
+WOSC,SS SPDR MSCI World Small Cap UCITS ETF
+WQDS,iShares MSCI World Quality Dividend Advanced UCITS ETF
+WRDA,UBS Core MSCI World UCITS ETF
+WRDD,UBS Core MSCI World UCITS ETF
+WRDG,UBS Core MSCI World UCITS ETF
+WREE,Wisdomtree Strategic Metals and Rare Earths Miners UCITS ETF
+WREN,WisdomTree Renewable Energy UCITS ETF
+WSIL,WisdomTree Core Physical Silver
+WTEF,WisdomTree US Efficient Core UCITS ETF
+WTNR,WisdomTree New Economy Real Estate UCITS ETF
+X7PP,Invesco STOXX Europe 600 Optimised Banks UCITS ETF
+XAIX,Xtrackers Artificial Intelligence & Big Data UCITS ETF
+XASX,Xtrackers MSCI UK ESG UCITS ETF
+XAUS,Xtrackers S&P ASX 200 UCITS ETF
+XCO2,Amundi Global Aggregate Proceeds Bond 1-10Y
+XCX5,Xtrackers MSCI India Swap UCITS ETF
+XCX6,Xtrackers MSCI China UCITS ETF
+XD3E,Xtrackers Euro Stoxx Quality Dividend UCITS ETF
+XD5E,Xtrackers MSCI EMU UCITS ETF
+XD5S,Xtrackers MSCI EMU UCITS ETF
+XDAX,Xtrackers DAX UCITS ETF
+XDBG,Xtrackers Bloomberg Commodity ex-Agriculture & Livestock Swap UCITS ETF
+XDDX,Xtrackers DAX ESG Screened UCITS ETF
+XDEB,Xtrackers MSCI World Minimum Volatility UCITS ETF
+XDEM,Xtrackers MSCI World Momentum UCITS ETF
+XDEQ,Xtrackers MSCI World Quality UCITS ETF
+XDEV,Xtrackers MSCI World Value UCITS ETF
+XDJP,Xtrackers Nikkei 225 UCITS ETF
+XDN0,Xtrackers MSCI Nordic UCITS ETF
+XDPG,Xtrackers S&P 500 UCITS ETF
+XDUS,Xtrackers MSCI USA UCITS ETF
+XDWE,Xtrackers S&P 500 Equal Weight UCITS ETF
+XDWG,Xtrackers MSCI World UCITS ETF
+XDWP,Xtrackers MSCI World UCITS ETF
+XESC,Xtrackers Euro Stoxx 50 UCITS ETF
+XESE,Xtrackers MSCI Emerging Markets ESG UCITS ETF
+XESJ,Xtrackers MSCI Japan ESG UCITS ETF
+XESU,Xtrackers MSCI USA ESG UCITS ETF
+XESW,Xtrackers MSCI World ESG UCITS ETF
+XESX,Xtrackers Euro Stoxx 50 UCITS ETF
+XFVT,Xtrackers Vietnam Swap UCITS ETF
+XG7S,Xtrackers II Global Government Bond UCITS ETF
+XGDP,Xtrackers IE Physical Gold ETC Securities
+XGIG,Xtrackers II Global Inflation-Linked Bond UCITS ETF
+XGIU,Xtrackers II Global Inflation-Linked Bond UCITS ETF
+XGSD,Xtrackers Stoxx Global Select Dividend 100 Swap UCITS ETF
+XGSG,Xtrackers II Global Government Bond UCITS ETF
+XLCP,Invesco Communications S&P US Select Sector UCITS ETF
+XLEP,Invesco Energy S&P US Select Sector UCITS ETF
+XLKQ,Invesco Technology S&P US Select Sector UCITS ETF
+XLPE,Xtrackers LPX Private Equity Swap UCITS ETF
+XLUP,Invesco Utilities S&P US Select Sector UCITS ETF
+XLYP,Invesco Consumer Discretionary S&P US Select Sector UCITS ETF
+XMAW,Xtrackers MSCI AC World Screened UCITS ETF
+XMCX,Xtrackers FTSE 250 UCITS ETF
+XMEM,Xtrackers MSCI Emerging Markets Swap UCITS ETF
+XMEU,Xtrackers MSCI Europe UCITS ETF
+XMJP,Xtrackers MSCI Japan UCITS ETF
+XMMS,Xtrackers MSCI Emerging Markets UCITS ETF
+XMOV,Xtrackers Future Mobility UCITS ETF
+XMUS,Xtrackers MSCI USA Swap UCITS ETF
+XMWX,Xtrackers MSCI World ex USA UCITS ETF
+XNAQ,Xtrackers NASDAQ 100 UCITS ETF
+XNGS,Xtrackers MSCI Next Generation Internet Innovation UCITS ETF
+XNIF,Xtrackers Nifty 50 Swap UCITS ETF
+XREP,Invesco Real Estate S&P US Select Sector UCITS ETF
+XRSG,Xtrackers Russell 2000 UCITS ETF
+XS6R,Xtrackers MSCI Europe Utilities UCITS ETF
+XSCS,Xtrackers MSCI USA Consumer Staples UCITS ETF
+XSFN,Xtrackers MSCI USA Financials UCITS ETF
+XSHC,Xtrackers MSCI USA Health Care UCITS ETF
+XSPX,Xtrackers S&P 500 Swap UCITS ETF
+XSTC,Xtrackers MSCI USA Information Technology UCITS ETF
+XSTR,Xtrackers II GBP Overnight Rate Swap UCITS ETF
+XSX6,Xtrackers Stoxx Europe 600 UCITS ETF
+XSXG,Xtrackers S&P 500 Swap UCITS ETF
+XUCN,Xtrackers MSCI USA Communication Services UCITS ETF
+XUEK,Xtrackers S&P Europe ex UK UCITS ETF
+XUFB,Xtrackers MSCI USA Banks UCITS ETF
+XUHG,Xtrackers USD High Yield Corporate Bond UCITS ETF
+XUKX,Xtrackers FTSE 100 Income UCITS ETF
+XUSE,iShares MSCI World ex-USA UCITS ETF
+XUSW,Xtrackers MSCI USA Swap UCITS ETF
+XWCS,Xtrackers MSCI World Consumer Staples UCITS ETF
+XWFS,Xtrackers MSCI World Financials UCITS ETF
+XWHS,Xtrackers MSCI World Health Care UCITS ETF
+XWLD,Xtrackers MSCI World UCITS ETF
+XWOS,Xtrackers MSCI World Swap UCITS ETF
+XWQS,Xtrackers MSCI World Quality ESG UCITS ETF
+XWUS,Xtrackers MSCI World Utilities UCITS ETF
+XXSC,Xtrackers MSCI Europe Small Cap UCITS ETF
+XXTW,Xtrackers MSCI World Information Technology UCITS ETF
+XYLP,Global X S&P 500 Covered Call UCITS ETF
+XZES,Xtrackers S&P 500 Equal Weight Scored & Screened UCITS ETF
+XZEU,Xtrackers MSCI Europe ESG UCITS ETF
