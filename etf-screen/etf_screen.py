@@ -28,6 +28,7 @@ import pandas as pd
 import requests
 import yfinance as yf
 from bs4 import BeautifulSoup
+from dateutil.easter import easter
 
 UNIVERSE_URL = "https://investengine.com/etfs/all/"
 EXPECTED_UNIVERSE = 870
@@ -38,7 +39,7 @@ BATCH_SIZE = 100
 
 WEEK_LOOKBACK = 5           # trading days
 STALE_TRADING_DAYS = 3
-LOW_VOLUME_MEDIAN = 1_000   # shares/day
+LOW_VOLUME_MEDIAN = 100     # shares/day (many LSE ETFs report ~0 on Yahoo)
 GAP_MAX_MISSING = 3         # missing sessions in the window before flagging
 BIG_WEEK_MOVE = 0.30
 UNIT_JUMP_RATIO = 20        # day-over-day close ratio suggesting pence <-> pounds
@@ -145,9 +146,44 @@ def download_prices(tickers: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 # --------------------------------------------------------------------------- #
+# Trading calendar (LSE = weekdays minus England & Wales bank holidays)
+# --------------------------------------------------------------------------- #
+def _substitute(d: date, taken: set[date]) -> date:
+    while d.weekday() >= 5 or d in taken:
+        d += timedelta(days=1)
+    return d
+
+
+def uk_bank_holidays(year: int) -> set[date]:
+    def first_monday(m: int) -> date:
+        d = date(year, m, 1)
+        return d + timedelta(days=(7 - d.weekday()) % 7)
+
+    def last_monday(m: int) -> date:
+        d = date(year, m + 1, 1) - timedelta(days=1)
+        return d - timedelta(days=d.weekday())
+
+    e = easter(year)
+    out = {e - timedelta(days=2), e + timedelta(days=1),
+           first_monday(5), last_monday(5), last_monday(8)}
+    out.add(_substitute(date(year, 1, 1), out))
+    xmas = _substitute(date(year, 12, 25), out)
+    out.add(xmas)
+    out.add(_substitute(date(year, 12, 26), out))
+    return out
+
+
+def lse_sessions(start: pd.Timestamp, end: pd.Timestamp) -> pd.DatetimeIndex:
+    days = pd.bdate_range(start, end)
+    hols = set().union(*(uk_bank_holidays(y) for y in range(start.year, end.year + 1)))
+    return days[~days.to_series().dt.date.isin(hols).values]
+
+
+# --------------------------------------------------------------------------- #
 # 3 + 4. Returns and quality checks
 # --------------------------------------------------------------------------- #
-def compute_row(s: pd.Series, v: pd.Series, sessions: pd.DatetimeIndex) -> dict:
+def compute_row(s: pd.Series, v: pd.Series, sessions: pd.DatetimeIndex,
+                latest: pd.Timestamp, yahoo_gaps: pd.DatetimeIndex) -> dict:
     notes: list[str] = []
     s = s.dropna()
     if s.empty:
@@ -157,10 +193,16 @@ def compute_row(s: pd.Series, v: pd.Series, sessions: pd.DatetimeIndex) -> dict:
     last_dt = s.index[-1]
     last = s.iloc[-1]
 
-    # 1W: latest close vs close 5 trading days earlier
-    ret_1w = s.iloc[-1] / s.iloc[-1 - WEEK_LOOKBACK] - 1 if len(s) > WEEK_LOOKBACK else np.nan
+    # 1W: latest close vs close 5 trading days earlier (on the LSE calendar, so a
+    # day missing from Yahoo doesn't silently stretch the window)
+    pos = sessions.searchsorted(last_dt)
+    week_ago = sessions[pos - WEEK_LOOKBACK] if pos >= WEEK_LOOKBACK else None
+    base = s.loc[:week_ago] if week_ago is not None else s.iloc[:0]
+    ret_1w = last / base.iloc[-1] - 1 if not base.empty else np.nan
     if np.isnan(ret_1w):
         notes.append("insufficient history for 1W")
+    elif base.index[-1] != week_ago:
+        notes.append(f"no close on {week_ago.date()}; 1W uses {base.index[-1].date()}")
 
     # 1M: latest close vs last close on/before same date one calendar month ago
     target = last_dt - pd.DateOffset(months=1)
@@ -169,8 +211,8 @@ def compute_row(s: pd.Series, v: pd.Series, sessions: pd.DatetimeIndex) -> dict:
     if prior.empty:
         notes.append("insufficient history for 1M")
 
-    # Stale price: sessions (seen across universe) after this ticker's last close
-    stale = int((sessions > last_dt).sum())
+    # Stale price: LSE sessions after this ticker's last close, up to the latest data
+    stale = int(((sessions > last_dt) & (sessions <= latest)).sum())
     if stale > STALE_TRADING_DAYS:
         notes.append(f"stale: last price {stale} trading days old")
 
@@ -179,7 +221,7 @@ def compute_row(s: pd.Series, v: pd.Series, sessions: pd.DatetimeIndex) -> dict:
     if vv.median() < LOW_VOLUME_MEDIAN:
         notes.append(f"low volume (median {int(vv.median()):,}/day)")
     window = sessions[(sessions >= s.index[0]) & (sessions <= last_dt)]
-    missing = len(window.difference(s.index))
+    missing = len(window.difference(s.index).difference(yahoo_gaps))
     if missing > GAP_MAX_MISSING:
         notes.append(f"data gaps ({missing} missing sessions)")
 
@@ -196,20 +238,31 @@ def compute_row(s: pd.Series, v: pd.Series, sessions: pd.DatetimeIndex) -> dict:
 
 def build_results(universe: pd.DataFrame, close: pd.DataFrame,
                   volume: pd.DataFrame) -> pd.DataFrame:
-    sessions = close.dropna(how="all").index
+    have = close.dropna(how="all").index
+    latest = have[-1]
+    sessions = lse_sessions(have[0], latest)
+    # Days the LSE was open but Yahoo has nothing for ANY fund: a Yahoo gap, not a fund issue
+    yahoo_gaps = sessions.difference(have)
+    for d in yahoo_gaps:
+        log.warning("Yahoo has no data for any ETF on %s (LSE trading day)", d.date())
     rows = []
     for t, name in universe[["ticker", "name"]].itertuples(index=False):
         s = close[t] if t in close else pd.Series(dtype=float)
         v = volume[t] if t in volume else pd.Series(dtype=float)
-        rows.append({"ticker": t, "name": name, **compute_row(s, v, sessions)})
+        rows.append({"ticker": t, "name": name,
+                     **compute_row(s, v, sessions, latest, yahoo_gaps)})
     return pd.DataFrame(rows)
 
 
 # --------------------------------------------------------------------------- #
 # 5. Output
 # --------------------------------------------------------------------------- #
+UNRANKABLE = "unit error|suspicious"   # notes that exclude a row from the top tables
+
+
 def print_top(df: pd.DataFrame, col: str, label: str, n: int = 20) -> None:
-    top = df.dropna(subset=[col]).sort_values(col, ascending=False).head(n)
+    ok = ~df["notes"].fillna("").str.contains(UNRANKABLE)
+    top = df[ok].dropna(subset=[col]).sort_values(col, ascending=False).head(n)
     cols = ["ticker", "name", "last_close_date", "ret_1w_pct", "ret_1m_pct", "notes"]
     out = top[cols].copy()
     out["name"] = out["name"].str.slice(0, 45)
@@ -257,6 +310,11 @@ def main() -> int:
           f"({len(results)} ETFs, source: Yahoo Finance {YAHOO_SUFFIX})")
     print_top(results, "ret_1w_pct", "1-week return")
     print_top(results, "ret_1m_pct", "1-month return")
+
+    bad = results[results["notes"].fillna("").str.contains(UNRANKABLE)]
+    if not bad.empty:
+        print("\nExcluded from the tables above (likely unit errors - still in results.csv):")
+        print(bad[["ticker", "name", "ret_1w_pct", "ret_1m_pct"]].to_string(index=False))
 
     failed = results[results["last_close_date"].isna()]
     flagged = results[results["notes"].ne("") & results["last_close_date"].notna()]
